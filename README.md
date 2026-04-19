@@ -1,3 +1,4 @@
+
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
 
@@ -17,3 +18,5 @@ The game is planned to have:
 * and at least 1 simple boss.
 
 <img width="280" height="170" alt="main character and enemies" src="https://github.com/user-attachments/assets/c40d9953-aa99-4048-9994-eb8921790823" />
+
+<img width="280" height="280" alt="Prototype Scene" src="https://github.com/user-attachments/assets/1c12973d-415b-4941-8b8a-6bc083a00d8b" />
