@@ -20,3 +20,11 @@ The game is planned to have:
 <img width="280" height="170" alt="main character and enemies" src="https://github.com/user-attachments/assets/c40d9953-aa99-4048-9994-eb8921790823" />
 
 <img width="280" height="280" alt="Prototype Scene" src="https://github.com/user-attachments/assets/1c12973d-415b-4941-8b8a-6bc083a00d8b" />
+
+## April 20th, 2026
+### Implementing a State Machine
+
+In this step, I started building a state machine for the game that will be developed in this project. The summary can be seen in the following figure.
+
+<img width="1952" height="1110" alt="Captura de tela 2026-04-20 151730" src="https://github.com/user-attachments/assets/77e659c5-7680-4496-8e4e-48a4706b2742" />
+In this example, we will have a state for each scene or main condition of the game. The "menu state" leads to the "game state," where two possible paths can be followed, leading to new machine states, such as the "lose state," which allows the player to restart the game in the "try again state," and if the player wins, they are directed to the "win state," which closes the cycle and leads to the "menu state."
