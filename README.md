@@ -1,2 +1,30 @@
+
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
+
+## April 19th, 2026
+### Creating a 3D adventure game: Basic Structure
+
+A 3D adventure game project has been initiated, containing EBAC art packages such as prefabs for scenarios, enemies, and the player, as well as animations and state machines. Other important plugins were included in the project, such as DoTween, NaughtyAttributes, Cinemachine, and Recording.
+
+The game will be inspired by games like Super Lucky's Tale and Super Mario 3D Worlds.
+
+The game is planned to have: 
+
+* 1 main character, with integrated animations, who walks, jumps, dies, and attacks; 
+* coins and/or collectible items scattered throughout the level; 
+* chests or items that distribute coins when broken; 
+* enemies with different behaviors; 
+* and at least 1 simple boss.
+
+<img width="280" height="170" alt="main character and enemies" src="https://github.com/user-attachments/assets/c40d9953-aa99-4048-9994-eb8921790823" />
+
+<img width="280" height="280" alt="Prototype Scene" src="https://github.com/user-attachments/assets/1c12973d-415b-4941-8b8a-6bc083a00d8b" />
+
+## April 20th, 2026
+### Implementing a State Machine
+
+In this step, I started building a state machine for the game that will be developed in this project. The summary can be seen in the following figure.
+
+<img width="1952" height="1110" alt="Captura de tela 2026-04-20 151730" src="https://github.com/user-attachments/assets/77e659c5-7680-4496-8e4e-48a4706b2742" />
+In this example, we will have a state for each scene or main condition of the game. The "menu state" leads to the "game state," where two possible paths can be followed, leading to new machine states, such as the "lose state," which allows the player to restart the game in the "try again state," and if the player wins, they are directed to the "win state," which closes the cycle and leads to the "menu state."
