@@ -34,4 +34,6 @@ In this example, we will have a state for each scene or main condition of the ga
 
 A project folder, EDGEE_CORE, was created to include the state machine.cs and state base.cs scripts. In this step, two scripts were created for configuring the FSM and the state machine editor. A game manager was also configured for the game to start the project.
 
+In this step, the foundation of a generic finite state machine for the project was created. I added a StateMachine<T> generic class that stores states in a Dictionary, manages the current state, and exposes Init, RegisterStates, SwitchState and Update methods which call the virtual callbacks on a StateBase class (OnStateEnter/Stay/Exit). A simple FSM MonoBehaviour demonstrates registering enum-based states, and a Custom Editor (StateMachineEditor) provides an inspector view to visualize the current state and registered states in the editor. I also included a small Test class showing how to instantiate and register states programmatically. This setup establishes the core FSM architecture and editor tooling to build concrete states and drive gameplay logic.
+
 (Module 27 submission - Creating a 3D adventure game: Basic Structure - NOTE: The activity began on April 19th and ended on April 21th.).
