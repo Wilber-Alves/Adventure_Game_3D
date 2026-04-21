@@ -35,3 +35,5 @@ A project folder, EDGEE_CORE, was created to include the state machine.cs and st
 ### Implementing a State Machine, FSM and Game Manager
 
 In this step, two scripts were created for configuring the FSM and the state machine editor. A game manager was also configured for the game to start the project.
+
+(Module 27 submission - Creating a 3D adventure game: Basic Structure - NOTE: The activity began on April 19th and ended on April 21th.).
