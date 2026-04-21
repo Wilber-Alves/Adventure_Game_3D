@@ -2,72 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using System.Runtime.InteropServices.WindowsRuntime;
 
-public class StateMachine : MonoBehaviour
+public class Test
 {
-    public enum States
+    public enum Test2
     {
-      NONE,
+        NONE,
+        TEST
     }
 
-    public Dictionary<States, StateBase> dictionaryStates;
+    public void TestMethod()
+    {
+       StateMachine<Test2> stateMachine = new StateMachine<Test2>();
+
+       stateMachine.RegisterStates(Test.Test2.NONE, new StateBase());
+
+    }
+
+}
+
+public class StateMachine<T> where T : System.Enum
+{ 
+    public Dictionary<T, StateBase> dictionaryStates;
 
     private StateBase _currentState;
+
     public float timeToStartGame = 1.0f;
 
-    private void Awake()
+    public StateBase CurrentState
     {
-        dictionaryStates = new Dictionary<States, StateBase>();
-        dictionaryStates.Add(States.NONE, new StateBase());
-
-        SwitchState(States.NONE);
-
-        Invoke(nameof(StartGame), timeToStartGame);
-
+        get 
+        { 
+            return _currentState; 
+        }
+        
     }
-    [Button]
-    private void StartGame()
+
+    public void Init()
     {
-        SwitchState(States.NONE);
+        dictionaryStates = new Dictionary<T, StateBase>();
     }
 
-#if UNITY_EDITOR
-    #region DEBUG
-
-    [Button]
-    private void ChangeStateToStateX()
-    { 
-        SwitchState(States.NONE);
+    public void RegisterStates(T typeEnum, StateBase state)
+    {  
+        dictionaryStates.Add(typeEnum, state);
     }
 
-    [Button]
-    private void ChangeStateToStateY()
-    {
-        SwitchState(States.NONE);
-    }
-    #endregion
-#endif
-    
-    private void SwitchState(States state)
+    public void SwitchState(T state)
     {
         if (_currentState != null) _currentState.OnStateExit();
         _currentState = dictionaryStates[state];
         _currentState.OnStateEnter();
     }
 
-    private void Update()
+    public void Update()
     {
-
       if (_currentState != null)
       {
           _currentState.OnStateStay();
-      }
-      
-      if (Input.GetKeyDown(KeyCode.O))
-      {
-          //SwitchState(States.DEAD);
-      }
-
+      } 
     }
-
 }
