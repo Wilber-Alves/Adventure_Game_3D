@@ -28,3 +28,12 @@ In this step, I started building a state machine for the game that will be devel
 
 <img width="1952" height="1110" alt="Captura de tela 2026-04-20 151730" src="https://github.com/user-attachments/assets/77e659c5-7680-4496-8e4e-48a4706b2742" />
 In this example, we will have a state for each scene or main condition of the game. The "menu state" leads to the "game state," where two possible paths can be followed, leading to new machine states, such as the "lose state," which allows the player to restart the game in the "try again state," and if the player wins, they are directed to the "win state," which closes the cycle and leads to the "menu state."
+
+A project folder, EDGEE_CORE, was created to include the state machine.cs and state base.cs scripts.
+
+## April 21th, 2026
+### Implementing a State Machine, FSM and Game Manager
+
+In this step, two scripts were created for configuring the FSM and the state machine editor. A game manager was also configured for the game to start the project.
+
+(Module 27 submission - Creating a 3D adventure game: Basic Structure - NOTE: The activity began on April 19th and ended on April 21th.).
