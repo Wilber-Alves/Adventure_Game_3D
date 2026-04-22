@@ -36,4 +36,6 @@ A project folder, EDGEE_CORE, was created to include the state machine.cs and st
 
 In this step, the foundation of a generic finite state machine for the project was created. I added a StateMachine<T> generic class that stores states in a Dictionary, manages the current state, and exposes Init, RegisterStates, SwitchState and Update methods which call the virtual callbacks on a StateBase class (OnStateEnter/Stay/Exit). A simple FSM MonoBehaviour demonstrates registering enum-based states, and a Custom Editor (StateMachineEditor) provides an inspector view to visualize the current state and registered states in the editor. I also included a small Test class showing how to instantiate and register states programmatically. This setup establishes the core FSM architecture and editor tooling to build concrete states and drive gameplay logic.
 
+<img width="280" height="170" alt="Adjustment on the sprites for the enemies - eyes and mouth" src="https://github.com/user-attachments/assets/d9781b60-c1ff-4a43-9d81-034ecf492d92"/>
+
 (Module 27 submission - Creating a 3D adventure game: Basic Structure - NOTE: The activity began on April 19th and ended on April 21th.).
