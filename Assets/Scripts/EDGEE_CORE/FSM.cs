@@ -1,14 +1,15 @@
+using EDGEE.StateMachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static GameManager;
 public class FSM : MonoBehaviour
 {
     public enum ExempleEnum
     {
-       STATE_ONE,
-       STATE_TWO,
-       STATE_THREE,
+       RUN,
+       STOP,
+       JUMP,
     }
 
     public StateMachine<ExempleEnum> stateMachine;
@@ -17,9 +18,9 @@ public class FSM : MonoBehaviour
     {
         stateMachine = new StateMachine<ExempleEnum>();
         stateMachine.Init();
-        stateMachine.RegisterStates(ExempleEnum.STATE_ONE, new StateBase());
-        stateMachine.RegisterStates(ExempleEnum.STATE_TWO, new StateBase());
-        stateMachine.RegisterStates(ExempleEnum.STATE_THREE, new StateBase());
+        stateMachine.RegisterStates(ExempleEnum.RUN, new StateBase());
+        stateMachine.RegisterStates(ExempleEnum.STOP, new StateBase());
+        stateMachine.RegisterStates(ExempleEnum.JUMP, new StateBase());
     }
 
 }
