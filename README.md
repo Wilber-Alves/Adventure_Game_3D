@@ -39,3 +39,9 @@ In this step, the foundation of a generic finite state machine for the project w
 <img width="280" height="170" alt="Adjustment on the sprites for the enemies - eyes and mouth" src="https://github.com/user-attachments/assets/d9781b60-c1ff-4a43-9d81-034ecf492d92"/>
 
 (Module 27 submission - Creating a 3D adventure game: Basic Structure - NOTE: The activity began on April 19th and ended on April 21th.).
+
+## May 01st, 2026
+### Creating a 3D adventure game: Hero movement
+
+
+
