@@ -43,5 +43,7 @@ In this step, the foundation of a generic finite state machine for the project w
 ## May 01st, 2026
 ### Creating a 3D adventure game: Hero movement
 
+We began developing the hero's movement using the Mechanism and including Idle, Run, and Death animations in the Animator, testing some states. Additionally, a Blend Tree was created for use in the Idle and Run animations.
 
+<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/367ccffa-4512-49ea-896d-8eb9eed6c565" />
 
