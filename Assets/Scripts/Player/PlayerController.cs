@@ -1,15 +1,25 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public CharacterController characterController;
-    public float speed = 1f;
+    public float speed = 10f;
     public float turnSpeed = 1f;
     public float gravity = 9.8f;
+    public float jumpSpeed = 5f;
 
     private float vSpeed = 0f;
-    
+
+
+    public KeyCode jumpKey = KeyCode.Space;
+
+    [Header("Run Setup")]
+    public KeyCode keyRun = KeyCode.LeftShift;
+    public float speedRun = 1.5f;
+
 
     void Update()
     {
@@ -18,12 +28,35 @@ public class PlayerController : MonoBehaviour
         var inputAxisVertical = Input.GetAxis("Vertical");
         var speedVector = transform.forward * inputAxisVertical * speed;
 
+        if (characterController.isGrounded)
+        {
+            vSpeed = 0;
+            if (Input.GetKeyDown(jumpKey))
+            { 
+                vSpeed = jumpSpeed;
+            }
+        }
+
         vSpeed -= gravity * Time.deltaTime;
         speedVector.y = vSpeed;
 
+        var isWalking = inputAxisVertical != 0;
+        if (isWalking)
+        {
+            if (Input.GetKey(keyRun))
+            {
+                speedVector *= speedRun;
+                animator.speed = speedRun;
+            }
+            else
+            {
+                animator.speed = 1;
+            }
+        }
+
         characterController.Move(speedVector * Time.deltaTime);
 
-        if (inputAxisVertical !=0)
+        if (inputAxisVertical != 0)
         {
             animator.SetBool("Run", true);
         }
@@ -31,7 +64,5 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Run", false);
         }
-
     }
-
 }
