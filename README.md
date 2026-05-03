@@ -4,7 +4,7 @@
 ## April 19th, 2026
 ### Creating a 3D adventure game: Basic Structure
 
-A 3D adventure game project has been initiated, containing EBAC art packages such as prefabs for scenarios, enemies, and the player, as well as animations and state machines. Other important plugins were included in the project, such as DoTween, NaughtyAttributes, Cinemachine, and Recording.
+A 3D adventure game project (Prototype_Scene_01) has been initiated, containing EBAC art packages such as prefabs for scenarios, enemies, and the player, as well as animations and state machines. Other important plugins were included in the project, such as DoTween, NaughtyAttributes, Cinemachine, and Recording.
 
 The game will be inspired by games like Super Lucky's Tale and Super Mario 3D Worlds.
 
