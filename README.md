@@ -1,4 +1,3 @@
-
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
 
@@ -45,5 +44,7 @@ In this step, the foundation of a generic finite state machine for the project w
 
 We began developing the hero's movement using the Mechanism and including Idle, Run, and Death animations in the Animator, testing some states. Additionally, a Blend Tree was created for use in the Idle and Run animations.
 
-<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/367ccffa-4512-49ea-896d-8eb9eed6c565" />
+<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/367ccffa-4512-49ea-896d-8eb9eed6c565" /> 
+
+<img width="300" height="150" alt="Movie_005" src="https://github.com/user-attachments/assets/a6a87bb2-7b7e-40c0-91de-16a950ac224f" />
 
