@@ -46,5 +46,11 @@ We began developing the hero's movement using the Mechanism and including Idle, 
 
 <img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/367ccffa-4512-49ea-896d-8eb9eed6c565" /> 
 
+## May 02nd and 3rd, 2026
+### Creating a 3D adventure game: "How do we move the 3D character?" and "Integrating animations with movement".
+
+This stage included the movement of the 3D character, both forward and rotation. The code was implemented in the PlayerController.cs script. The character movement control system was implemented, creating the CharacterController script. It includes the logic for movement via inputs and a gravity system, as well as the jumping mechanic (KeyCode.Space). Logic for running was also implemented, increasing the speed of movement and adjusting the animation (KeyCode.LeftShift).
+
 <img width="300" height="150" alt="Movie_005" src="https://github.com/user-attachments/assets/a6a87bb2-7b7e-40c0-91de-16a950ac224f" />
+
 
