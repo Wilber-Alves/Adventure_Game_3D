@@ -55,6 +55,11 @@ This stage included the movement of the 3D character, both forward and rotation.
 
 (Module 29 submission -  Creating a 3D adventure game: Hero movement - NOTE: The activity began on April 21th and ended on May 3rd.).
 
-## May 04, 2026
+## July 11, 2026
 ### Creating a 3D adventure game: adding weapons
+
+NOTE: The project was put on hold during May and June so I could complete my end-of-semester college exams. Now, in July, I will focus on finishing the project, taking advantage of the break from both college and work.
+
+Today, the base scripts for the character's weapon and its projectiles were created. Code previously developed for the 2D platformer was reused.
+Since the timeframe for completing these tasks is short (about 20 days), I will focus on core mechanics to ensure I can complete as many tasks as possible.
 
