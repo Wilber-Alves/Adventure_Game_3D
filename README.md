@@ -63,3 +63,11 @@ NOTE: The project was put on hold during May and June so I could complete my end
 Today, the base scripts for the character's weapon and its projectiles were created. Code previously developed for the 2D platformer was reused.
 Since the timeframe for completing these tasks is short (about 20 days), I will focus on core mechanics to ensure I can complete as many tasks as possible.
 
+## July 14, 2026
+### Creating a 3D adventure game: Adding a weapon to the character using the new Input System
+
+A script named "Player Ability Base" was created to handle player abilities without cluttering the main Player class; additionally, the "Player Ability Shoot" script was created to implement the initial shooting ability using Unity's new input system. A new folder named "inputs" was added to the project, containing an input action asset to define the player's input maps; this was used to configure the "shoot" ability to trigger when the X key is pressed.
+
+<img width="280" height="170" alt="Shoot Ability with new Input System" src="https://github.com/user-attachments/assets/ce6dc6ac-5c12-4aa6-a740-5ccf17227b31" />
+
+
