@@ -1,3 +1,4 @@
+<img width="692" height="388" alt="Movie_015" src="https://github.com/user-attachments/assets/c5520d11-c525-43d8-b7d0-78f52f6fc983" />
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
 
@@ -63,3 +64,17 @@ NOTE: The project was put on hold during May and June so I could complete my end
 Today, the base scripts for the character's weapon and its projectiles were created. Code previously developed for the 2D platformer was reused.
 Since the timeframe for completing these tasks is short (about 20 days), I will focus on core mechanics to ensure I can complete as many tasks as possible.
 
+## July 14, 2026
+### Creating a 3D adventure game: Adding a weapon to the character using the new Input System
+
+A script named "Player Ability Base" was created to handle player abilities without cluttering the main Player class; additionally, the "Player Ability Shoot" script was created to implement the initial shooting ability using Unity's new input system. A new folder named "inputs" was added to the project, containing an input action asset to define the player's input maps; this was used to configure the "shoot" ability to trigger when the X key is pressed.
+
+<img width="280" height="170" alt="Shoot Ability with new Input System" src="https://github.com/user-attachments/assets/ce6dc6ac-5c12-4aa6-a740-5ccf17227b31" />
+
+### Creating a 3D adventure game: Adding Shot Limits
+
+A "Weapon Shoot Limited" script was created to limit the number of shots a weapon can fire, resulting in a new weapon variant for the project. With this script, the player must wait one second before firing a new burst of five consecutive shots; if five shots are fired in a row, the sixth shot is delayed by one second, simulating a reload.
+
+The "Weapon Shoot Limited" script required adjustments to ensure that the weapon fired only when the X key was pressed and that the firing coroutine did not restart while already running. Previously, the game suffered from a bug where the logic allowed multiple shots to fire automatically after the initial three, resulting in unwanted behavior where the weapon fired continuously without player input. With the new checks implemented in `Update()`, the firing mechanism was more precisely controlled, allowing the player to start and stop firing as needed. Additionally, the reload logic was preserved to ensure the weapon could only fire again after the reload time had elapsed.
+
+<img width="280" height="170" alt="Limited Shoot Ability" src="https://github.com/user-attachments/assets/687b45fb-73c4-414d-bedc-29d8e40be50e" />
