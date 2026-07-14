@@ -1,4 +1,3 @@
-<img width="692" height="388" alt="Movie_015" src="https://github.com/user-attachments/assets/c5520d11-c525-43d8-b7d0-78f52f6fc983" />
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
 
