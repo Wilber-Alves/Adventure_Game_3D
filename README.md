@@ -1,4 +1,3 @@
-<img width="692" height="388" alt="Movie_015" src="https://github.com/user-attachments/assets/c5520d11-c525-43d8-b7d0-78f52f6fc983" />
 # Adventure_Game_3D
  3D adventure game project containing exercises related to modules 27 through 40 of the EBAC Unity developer course.
 
@@ -78,3 +77,17 @@ A "Weapon Shoot Limited" script was created to limit the number of shots a weapo
 The "Weapon Shoot Limited" script required adjustments to ensure that the weapon fired only when the X key was pressed and that the firing coroutine did not restart while already running. Previously, the game suffered from a bug where the logic allowed multiple shots to fire automatically after the initial three, resulting in unwanted behavior where the weapon fired continuously without player input. With the new checks implemented in `Update()`, the firing mechanism was more precisely controlled, allowing the player to start and stop firing as needed. Additionally, the reload logic was preserved to ensure the weapon could only fire again after the reload time had elapsed.
 
 <img width="280" height="170" alt="Limited Shoot Ability" src="https://github.com/user-attachments/assets/687b45fb-73c4-414d-bedc-29d8e40be50e" />
+
+### Developing different weapons
+
+At this stage, an angled-shot weapon was created, requiring a script named "Weapon Shoot Angle" with variables that allow for the instantiation of up to four shots at specific angles. To make this script work, adjustments were made to the "Weapon Base" script—specifically changing the `shoot` function from `void` to `virtual void`—thereby allowing the function's content to be accessed via an override in the "Weapon Shoot Angle" script. Modifications ensured the shots were instantiated at the correct angle by utilizing `eulerAngles` and multipliers to distinguish between odd- and even-numbered shots.
+
+Regarding the player's shooting ability, modifications were implemented to allow the character to select or switch weapons based on gameplay needs. This involved creating an empty object named "Weapon_Position" within the player hierarchy and adding a new function to spawn the weapon. Consequently, each weapon prefab can carry its own script, eliminating the need to manually swap weapons within the project hierarchy.
+
+<img width="280" height="170" alt="Basic Shoot Ability" src= "https://github.com/user-attachments/assets/58cee292-4093-4868-a767-4c7a8cfddfaa" />
+<img width="280" height="170" alt="Limited Shoot Ability" src= "https://github.com/user-attachments/assets/7b2d4ca6-d44d-4c74-b3d9-2b92ac84e73c" />
+<img width="280" height="170" alt="Angle Shoot Ability" src= "https://github.com/user-attachments/assets/6b94cf6d-3e30-43f5-87bf-bf13404b1d9d" />
+
+
+
+
