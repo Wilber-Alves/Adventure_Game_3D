@@ -1636,6 +1636,7 @@ GameObject:
   - component: {fileID: 378152490}
   - component: {fileID: 378152492}
   - component: {fileID: 378152491}
+  - component: {fileID: 378152493}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1687,7 +1688,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.42
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1700,6 +1701,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378152489}
   m_CullTransparentMesh: 1
+--- !u!114 &378152493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378152489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f8839e8121ebd47ac626544f53e307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIWeaponUpdater
+  uiImage: {fileID: 378152491}
+  animationDuration: 0.5
+  animationEase: 1
 --- !u!1001 &390907127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10368,7 +10384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2269e2edd858c47ad16122063e1b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityShoot
-  weaponBase: {fileID: 3546917058290642626, guid: 09f7d256540bd9e44aa64d8ef15e50f9, type: 3}
+  weaponBase: {fileID: -5039394655092278140, guid: 75790d0af12d1634ba5953cff4cbd8a3, type: 3}
   weaponPosition: {fileID: 1420376304}
 --- !u!1001 &1854544565
 PrefabInstance:
