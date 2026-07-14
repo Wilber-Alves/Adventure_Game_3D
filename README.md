@@ -70,4 +70,19 @@ A script named "Player Ability Base" was created to handle player abilities with
 
 <img width="280" height="170" alt="Shoot Ability with new Input System" src="https://github.com/user-attachments/assets/ce6dc6ac-5c12-4aa6-a740-5ccf17227b31" />
 
+### Creating a 3D adventure game: Adding Shot Limits
+
+A "Weapon Shoot Limited" script was created to limit the number of shots a weapon can fire, resulting in a new weapon variant for the project. With this script, the player must wait one second before firing a new burst of five consecutive shots; if five shots are fired in a row, the sixth shot is delayed by one second, simulating a reload.
+
+The "Weapon Shoot Limited" script required adjustments to ensure that the weapon fired only when the X key was pressed and that the firing coroutine did not restart while already running. Previously, the game suffered from a bug where the logic allowed multiple shots to fire automatically after the initial three, resulting in unwanted behavior where the weapon fired continuously without player input. With the new checks implemented in `Update()`, the firing mechanism was more precisely controlled, allowing the player to start and stop firing as needed. Additionally, the reload logic was preserved to ensure the weapon could only fire again after the reload time had elapsed.
+
+<img width="280" height="170" alt="Limited Shoot Ability" src="ttps://github.com/user-attachments/assets/034e2c01-78a0-49f3-8501-c36971a5ecd4"/>
+
+
+
+
+
+
+
+
 
