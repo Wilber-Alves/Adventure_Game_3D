@@ -10,16 +10,16 @@ public class WeaponBase : MonoBehaviour
     public float timeBetweenShoot = 0.3f;
     private Coroutine _currentCoroutine;
 
-    private IEnumerator ShootCoroutine()
+    protected virtual IEnumerator ShootCoroutine()
     {
-        while(true)
+        while (true)
         {
             Shoot();
             yield return new WaitForSeconds(timeBetweenShoot);
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.position = positionToShoot.position;
@@ -28,14 +28,18 @@ public class WeaponBase : MonoBehaviour
 
     public void StartShoot()
     {
-        StopShoot();
-        _currentCoroutine = StartCoroutine(ShootCoroutine());
-
+        if (_currentCoroutine == null) // Verifica se já está disparando
+        {
+            _currentCoroutine = StartCoroutine(ShootCoroutine());
+        }
     }
 
     public void StopShoot()
     {
         if (_currentCoroutine != null)
+        {
             StopCoroutine(_currentCoroutine);
+            _currentCoroutine = null; // Reseta a referência
+        }
     }
 }
