@@ -88,6 +88,13 @@ Regarding the player's shooting ability, modifications were implemented to allow
 <img width="280" height="170" alt="Limited Shoot Ability" src= "https://github.com/user-attachments/assets/7b2d4ca6-d44d-4c74-b3d9-2b92ac84e73c" />
 <img width="280" height="170" alt="Angle Shoot Ability" src= "https://github.com/user-attachments/assets/6b94cf6d-3e30-43f5-87bf-bf13404b1d9d" />
 
+### Integrating Guns with UI for Bullet Reload Hud
 
+A script named "UI Weapon Updater" was created to visually control an interface fill bar, displaying weapon ammunition or reload status; the script locates the image component within the editor to update the reload UI's visuals.
 
+Within the "Weapon Shoot Limited" script (one of the weapons designed with shot limits and reloading mechanics), a list named `UIWeaponUpdaters` was created, and an `UpdateUI()` function was implemented to adjust the HUD image's fill value based on the bullet count; the UI update itself is handled via the `GetAllUis()` function.
+
+DG.Tweening was also utilized in the "UI Weapon Updater" to ensure smoother transitions for the image and reload animations.
+
+A rapid-fire weapon was created—featuring a 0.2-second interval between shots and a 0.5-second reload time—by inheriting from the limited-shot weapon script. Scripts and prefabs for both the weapon and the projectile were created, bringing the total number of weapon types to four (Basic, Limited Shot, Angular Shot, and Rapid Fire).
 
