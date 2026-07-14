@@ -1,15 +1,27 @@
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.UI;
 
 public class WeaponShootLimited : WeaponBase
 {
+
+    public List<UIWeaponUpdater> uIWeaponUpdaters;
+
+
     public float maxShoot = 5f;
     public float timeToRecharge = 1f;
 
     private float _currentShoot;
     private bool _isRecharging = false;
+
+    private void Awake()
+    {
+        GetAllUIs();
+    }
+
 
     private void Update()
     {
@@ -32,6 +44,7 @@ public class WeaponShootLimited : WeaponBase
             {
                 Shoot();
                 _currentShoot++;
+                UpdateUI();
                 yield return new WaitForSeconds(timeBetweenShoot);
             }
             else
@@ -58,7 +71,7 @@ public class WeaponShootLimited : WeaponBase
         while (time < timeToRecharge)
         {
             time += Time.deltaTime;
-            Debug.Log("Recharging: " + time);
+            uIWeaponUpdaters.ForEach(i => i.UpdateValue(time/timeToRecharge));
             yield return null;
         }
 
@@ -66,4 +79,18 @@ public class WeaponShootLimited : WeaponBase
         _currentShoot = 0;
         _isRecharging = false;
     }
+
+
+    private void UpdateUI()
+    {
+        uIWeaponUpdaters.ForEach(i => i.UpdateValue(maxShoot, _currentShoot));
+
+    }
+
+    private void GetAllUIs()
+    {
+        uIWeaponUpdaters = GameObject.FindObjectsByType<UIWeaponUpdater>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).ToList();
+
+    }
+
 }
