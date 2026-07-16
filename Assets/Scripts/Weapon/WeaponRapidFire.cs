@@ -5,8 +5,14 @@ using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.UI;
 
-public class WeaponRapidFire : WeaponShootLimited
+public class WeaponRapidFire : WeaponBase
 {
+    public List<UIWeaponUpdater> uIWeaponUpdaters;
+
+    public float timeBTWShoot = 0.2f;
+    public float maxShoot = 5f;
+    public float timeToRecharge = 0.2f;
+
 
     private float _currentShoot;
     private bool _isRecharging = false;
@@ -39,7 +45,7 @@ public class WeaponRapidFire : WeaponShootLimited
                 Shoot();
                 _currentShoot++;
                 UpdateUI();
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(timeBTWShoot);
             }
             else
             {
