@@ -112,3 +112,6 @@ To better integrate weapon switching using Unity's Input System, I created a new
 
 (Module 30 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 11th and ended on July 15th.).
 
+## July 16, 2026
+### Creating a 3D adventure game: Adding Enemies
+
