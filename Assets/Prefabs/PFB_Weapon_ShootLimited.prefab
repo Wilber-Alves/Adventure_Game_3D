@@ -137,6 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponShootLimited
   prefabProjectile: {fileID: 1458379574873210837, guid: 1588a0e4b2a70014f99f34269dedd858, type: 3}
   positionToShoot: {fileID: 646117317949070022}
-  timeBetweenShoot: 0.3
+  timeBetweenShoot: 1
+  speed: 50
+  uIWeaponUpdaters: []
   maxShoot: 5
   timeToRecharge: 1
