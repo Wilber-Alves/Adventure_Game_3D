@@ -106,8 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponShootAngle
   prefabProjectile: {fileID: 1458379574873210837, guid: b6d2bd0f4c2cba04ba9dee28f52fffe0, type: 3}
   positionToShoot: {fileID: 5773249929318435078}
-  timeBetweenShoot: 0.3
+  timeBetweenShoot: 0.5
   speed: 50
+  uIWeaponUpdaters: []
   maxShoot: 5
   timeToRecharge: 1
   amountPerShoot: 4
