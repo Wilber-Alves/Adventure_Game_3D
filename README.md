@@ -96,5 +96,5 @@ Within the "Weapon Shoot Limited" script (one of the weapons designed with shot 
 
 DG.Tweening was also utilized in the "UI Weapon Updater" to ensure smoother transitions for the image and reload animations.
 
-A rapid-fire weapon was created—featuring a 0.2-second interval between shots and a 0.5-second reload time—by inheriting from the limited-shot weapon script. Scripts and prefabs for both the weapon and the projectile were created, bringing the total number of weapon types to four (Basic, Limited Shot, Angular Shot, and Rapid Fire).
+A rapid-fire weapon was created—featuring a 0.2-second interval between shots and a 0.2-second reload time—by inheriting from the weapon base script. Scripts and prefabs for both the weapon and the projectile were created, bringing the total number of weapon types to four (Basic, Limited Shot, Angular Shot, and Rapid Fire).
 
