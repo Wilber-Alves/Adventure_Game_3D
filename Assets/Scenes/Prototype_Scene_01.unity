@@ -8737,7 +8737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: m_Name
-      value: PFB_Astronaut Variant
+      value: PFB_Astronaut
       objectReference: {fileID: 0}
     - target: {fileID: 6362532124687793466, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: m_IsActive
