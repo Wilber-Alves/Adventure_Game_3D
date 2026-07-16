@@ -115,3 +115,7 @@ To better integrate weapon switching using Unity's Input System, I created a new
 ## July 16, 2026
 ### Creating a 3D adventure game: Adding Enemies
 
+### Basic enemy structure
+
+
+
