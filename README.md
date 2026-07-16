@@ -110,5 +110,5 @@ To better integrate weapon switching using Unity's Input System, I created a new
 
 <img width="280" height="170" alt="Weapon Selection" src= "https://github.com/user-attachments/assets/dcb3ceef-08ba-43ba-9a59-65f5d9887782" />
 
-(Module 30 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 11th and ended on July 14rd.).
+(Module 30 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 11th and ended on July 15th.).
 
