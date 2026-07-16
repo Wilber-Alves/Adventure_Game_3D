@@ -10384,7 +10384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2269e2edd858c47ad16122063e1b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAbilityShoot
-  weaponBase: {fileID: -5039394655092278140, guid: 75790d0af12d1634ba5953cff4cbd8a3, type: 3}
+  weaponBases:
+  - {fileID: 4917475342186429393, guid: cc2f4f05d50cf2840a58a1c9d0bcf45b, type: 3}
+  - {fileID: 1095423696265916933, guid: 60752bfa23836824e8224bf146dab899, type: 3}
+  - {fileID: -5039394655092278140, guid: 75790d0af12d1634ba5953cff4cbd8a3, type: 3}
+  - {fileID: 3546917058290642626, guid: 09f7d256540bd9e44aa64d8ef15e50f9, type: 3}
   weaponPosition: {fileID: 1420376304}
 --- !u!1001 &1854544565
 PrefabInstance:
