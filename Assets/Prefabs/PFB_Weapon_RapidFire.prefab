@@ -140,5 +140,6 @@ MonoBehaviour:
   timeBetweenShoot: 0.2
   speed: 50
   uIWeaponUpdaters: []
-  maxShoot: 10
-  timeToRecharge: 0.5
+  timeBTWShoot: 0.2
+  maxShoot: 5
+  timeToRecharge: 0.2
