@@ -98,3 +98,24 @@ DG.Tweening was also utilized in the "UI Weapon Updater" to ensure smoother tran
 
 A rapid-fire weapon was created—featuring a 0.2-second interval between shots and a 0.2-second reload time—by inheriting from the weapon base script. Scripts and prefabs for both the weapon and the projectile were created, bringing the total number of weapon types to four (Basic, Limited Shot, Angular Shot, and Rapid Fire).
 
+## July 15, 2026
+### Creating a 3D adventure game: Weapon Selection System
+
+To better integrate weapon switching using Unity's Input System, I created a new action map within the "inputs" Input Action Asset to handle player weapon selection. By pressing keys 1 through 4, the player can choose between the four created weapons. I modified the *Player Ability Shoots* script to adjust the weapon selection logic and updated all weapon Prefabs.
+
+* Press 1 (Keyboard) to select: Weapon Base (Yellow Bullets)
+* Press 2 (Keyboard) to select: Weapon Limited Shoot (Green Bullets)
+* Press 3 (Keyboard) to select: Weapon Rapid Fire (Red Bullets)
+* Press 4 (Keyboard) to select: Weapon Angle Shoot (Pink Bullets)
+
+<img width="280" height="170" alt="Weapon Selection" src= "https://github.com/user-attachments/assets/dcb3ceef-08ba-43ba-9a59-65f5d9887782" />
+
+(Module 30 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 11th and ended on July 15th.).
+
+## July 16, 2026
+### Creating a 3D adventure game: Adding Enemies
+
+### Basic enemy structure
+
+An "Enemy Base" script featuring health and damage systems was created. It implements health initialization, a method to take damage that reduces current health, and automatic GameObject destruction when health reaches zero. It also includes a test function using the 'K' key to deal 5 damage.
+
