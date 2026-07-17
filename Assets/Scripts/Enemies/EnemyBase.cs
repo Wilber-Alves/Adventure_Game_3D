@@ -6,9 +6,11 @@ using Animation;
 
 namespace Enemy
 {
-    public class EnemyBase : MonoBehaviour
+    public class EnemyBase : MonoBehaviour, IDamageable
     {
-      
+
+        public new Collider collider;
+
         [SerializeField] private float _currentLife;
 
         public float startLife = 10f;
@@ -45,6 +47,10 @@ namespace Enemy
         }
         protected virtual void OnKill()
         {
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
             Destroy(gameObject, 1.2f);
             PlayAnimationByTrigger(AnimationType.DEATH);
         }
@@ -80,6 +86,11 @@ namespace Enemy
                 OnDamage(5.0f);
             }
 
+        }
+
+        public void Damage(float damage)
+        {
+            OnDamage(damage);
         }
 
     }
