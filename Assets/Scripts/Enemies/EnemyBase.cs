@@ -1,15 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;  
 
 
 namespace Enemy
 {
     public class EnemyBase : MonoBehaviour
     {
-        public float startLife = 100f;
+        public float startLife = 10f;
 
         [SerializeField] private float _currentLife;
+
+        [Header("Start Animation")]
+        public float startAnimationDuration = 0.2f;
+        public Ease startAnimationEase = Ease.OutBack;
+        public bool startWithBornAnimation = true;
 
         private void Awake()
         {
@@ -24,6 +30,7 @@ namespace Enemy
         protected virtual void Init() 
         { 
             ResetLife();
+            BornAnimation();
         }
 
         protected virtual void Kill()
@@ -44,6 +51,16 @@ namespace Enemy
                 Kill();
             }
         }
+
+        #region ANIMATIONS
+
+        private void BornAnimation()
+        {
+            transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
+        }
+
+
+        #endregion
 
         private void Update()
         {
