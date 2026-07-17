@@ -127,3 +127,13 @@ The Enemy Base script was also modified to include enemy spawn animation values 
 
 ### Integrating animation
 
+During this stage, enemy animations were implemented. Logic for enemy spawn animations using DOTween was added to the `EnemyBase` class, which manages enemy health, damage, and death. A newly created `AnimationBase` class controls animation triggers (Idle, Run, Death, Attack) via a list configurable in the Inspector. I modified and adjusted all enemy prefabs by adding box colliders and creating a graphics container to allow for scaling the monsters; they now come in three different sizes. The animation system allows for testing enemy damage and death by pressing the 'K' key, which automatically triggers the death animation before destroying the object.
+
+<img width="280" height="170" alt="Enemies-IDLE animation" src= "https://github.com/user-attachments/assets/03baf273-cefa-4322-87de-49b4c606cf5c" />
+<img width="280" height="170" alt="Enemies-RUN animation" src= "https://github.com/user-attachments/assets/5b54d4bb-6c72-4a3c-8a7e-a152d4a5b7f2" />
+
+--
+
+<img width="280" height="170" alt="Enemies-DEATH animation" src= "https://github.com/user-attachments/assets/491afb88-bd34-470c-997a-6caddeb401f3" />
+<img width="280" height="170" alt="Enemies-ATTACK animation" src= "https://github.com/user-attachments/assets/2e0e7ac1-ab45-40eb-88bb-1a2647b75116" />
+
