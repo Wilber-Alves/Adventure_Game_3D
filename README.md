@@ -132,8 +132,11 @@ During this stage, enemy animations were implemented. Logic for enemy spawn anim
 <img width="280" height="170" alt="Enemies-IDLE animation" src= "https://github.com/user-attachments/assets/03baf273-cefa-4322-87de-49b4c606cf5c" />
 <img width="280" height="170" alt="Enemies-RUN animation" src= "https://github.com/user-attachments/assets/5b54d4bb-6c72-4a3c-8a7e-a152d4a5b7f2" />
 
---
+__
 
 <img width="280" height="170" alt="Enemies-DEATH animation" src= "https://github.com/user-attachments/assets/491afb88-bd34-470c-997a-6caddeb401f3" />
 <img width="280" height="170" alt="Enemies-ATTACK animation" src= "https://github.com/user-attachments/assets/2e0e7ac1-ab45-40eb-88bb-1a2647b75116" />
 
+### Causing the enemy to be affected by the weapon
+
+At this stage, changes were made to the enemy base script so that enemies could take damage upon colliding with a projectile. It was also possible to create an interface called `IDamageable` to manage the damage dealt to the enemies.
