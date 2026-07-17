@@ -123,5 +123,7 @@ An "Enemy Base" script featuring health and damage systems was created. It imple
 
 ### Integrating 3D enemy
 
+The Enemy Base script was also modified to include enemy spawn animation values ​​using the DG.Tweening library. Containers were created for the enemies to hold the Enemy Base script and box colliders, which were adjusted to fit each character's size.
 
+### Integrating animation
 
