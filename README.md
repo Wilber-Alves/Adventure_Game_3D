@@ -137,6 +137,10 @@ __
 <img width="280" height="170" alt="Enemies-DEATH animation" src= "https://github.com/user-attachments/assets/491afb88-bd34-470c-997a-6caddeb401f3" />
 <img width="280" height="170" alt="Enemies-ATTACK animation" src= "https://github.com/user-attachments/assets/2e0e7ac1-ab45-40eb-88bb-1a2647b75116" />
 
-### Causing the enemy to be affected by the weapon
+## July 17, 2026
+### Creating a 3D adventure game: Causing the enemy to be affected by the weapon
 
 At this stage, changes were made to the enemy base script so that enemies could take damage upon colliding with a projectile. It was also possible to create an interface called `IDamageable` to manage the damage dealt to the enemies.
+
+### Adding Particles
+
