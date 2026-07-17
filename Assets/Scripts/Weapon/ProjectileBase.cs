@@ -22,6 +22,14 @@ public class ProjectileBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-           
+           var damageable = collision.gameObject.GetComponent<IDamageable>();
+           if (damageable != null)
+           {
+               damageable.Damage(damageAmount);
+           }
+           if (!collision.gameObject.CompareTag("Projectile"))
+           {
+              Destroy(gameObject);
+           }
     }
 }
