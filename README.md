@@ -119,6 +119,9 @@ To better integrate weapon switching using Unity's Input System, I created a new
 
 An "Enemy Base" script featuring health and damage systems was created. It implements health initialization, a method to take damage that reduces current health, and automatic GameObject destruction when health reaches zero. It also includes a test function using the 'K' key to deal 5 damage. The astronaut prefab variant has also been updated.
 
-## NOTE – duplicate scenes and weapon prefabs have been removed from the repository. The correct files have been placed in the folders.
+### NOTE – duplicate scenes and weapon prefabs have been removed from the repository. The correct files have been placed in the folders.
+
+### Integrating 3D enemy
+
 
 
