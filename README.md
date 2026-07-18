@@ -143,4 +143,12 @@ __
 At this stage, changes were made to the enemy base script so that enemies could take damage upon colliding with a projectile. It was also possible to create an interface called `IDamageable` to manage the damage dealt to the enemies.
 
 ### Adding Particles
+For the visual effects stage regarding hit feedback on characters, a folder named "Visual Effects (VFX)" was created, containing a "Flash Color" script. This script allows enemies to flash after being struck by a projectile. Additionally, modifications were made to the "Enemy Base" to trigger this feedback, and particle effects were added to each of the monster prefabs.
 
+Each monster was assigned a particle system configured with its own VFX material, featuring a color similar to the materials used for the characters themselves. The URP/Lit shader was selected, with adjustments made to surface properties, color, and emission.
+
+Particle settings were also tweaked to simulate chunks of the slimes being propelled outward by the impact of the bullets.
+
+<img width="280" height="170" alt="VFX animations and damage feedbacks" src= "https://github.com/user-attachments/assets/41b217ab-274f-4356-a28d-b258b5028566" />
+
+(Module 31 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 16th and ended on July 17th.).
