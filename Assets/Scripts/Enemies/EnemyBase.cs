@@ -90,15 +90,6 @@ namespace Enemy
 
         #endregion
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                OnDamage(5.0f);
-            }
-
-        }
-
         public void Damage(float damage)
         {
             OnDamage(damage);
