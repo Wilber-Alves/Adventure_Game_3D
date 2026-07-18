@@ -132,8 +132,23 @@ During this stage, enemy animations were implemented. Logic for enemy spawn anim
 <img width="280" height="170" alt="Enemies-IDLE animation" src= "https://github.com/user-attachments/assets/03baf273-cefa-4322-87de-49b4c606cf5c" />
 <img width="280" height="170" alt="Enemies-RUN animation" src= "https://github.com/user-attachments/assets/5b54d4bb-6c72-4a3c-8a7e-a152d4a5b7f2" />
 
---
+__
 
 <img width="280" height="170" alt="Enemies-DEATH animation" src= "https://github.com/user-attachments/assets/491afb88-bd34-470c-997a-6caddeb401f3" />
 <img width="280" height="170" alt="Enemies-ATTACK animation" src= "https://github.com/user-attachments/assets/2e0e7ac1-ab45-40eb-88bb-1a2647b75116" />
 
+## July 17, 2026
+### Creating a 3D adventure game: Causing the enemy to be affected by the weapon
+
+At this stage, changes were made to the enemy base script so that enemies could take damage upon colliding with a projectile. It was also possible to create an interface called `IDamageable` to manage the damage dealt to the enemies.
+
+### Adding Particles
+For the visual effects stage regarding hit feedback on characters, a folder named "Visual Effects (VFX)" was created, containing a "Flash Color" script. This script allows enemies to flash after being struck by a projectile. Additionally, modifications were made to the "Enemy Base" to trigger this feedback, and particle effects were added to each of the monster prefabs.
+
+Each monster was assigned a particle system configured with its own VFX material, featuring a color similar to the materials used for the characters themselves. The URP/Lit shader was selected, with adjustments made to surface properties, color, and emission.
+
+Particle settings were also tweaked to simulate chunks of the slimes being propelled outward by the impact of the bullets.
+
+<img width="280" height="170" alt="VFX animations and damage feedbacks" src= "https://github.com/user-attachments/assets/41b217ab-274f-4356-a28d-b258b5028566" />
+
+(Module 31 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 16th and ended on July 17th.).
