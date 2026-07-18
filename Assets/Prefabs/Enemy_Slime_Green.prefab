@@ -4903,10 +4903,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3796525883589519942}
-  - component: {fileID: 6525906819202132387}
   - component: {fileID: 7562198413676985318}
   - component: {fileID: 5124815490876388216}
   - component: {fileID: 2560334099358932944}
+  - component: {fileID: 3501771150963576910}
   m_Layer: 0
   m_Name: Enemy_Slime_Green
   m_TagString: Untagged
@@ -4931,27 +4931,6 @@ Transform:
   - {fileID: 5321878418617163218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 247.696, z: 0}
---- !u!114 &6525906819202132387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043275693276879213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4a5c4ee2f31e14a83cf3efe2476942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyBase
-  collider: {fileID: 7562198413676985318}
-  flashColor: {fileID: 2560334099358932944}
-  damageParticleSystem: {fileID: 5837837173502818323}
-  _currentLife: 0
-  startLife: 10
-  _animationBase: {fileID: 5124815490876388216}
-  startAnimationDuration: 0.2
-  startAnimationEase: 27
-  startWithBornAnimation: 1
 --- !u!65 &7562198413676985318
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5010,6 +4989,30 @@ MonoBehaviour:
   meshRenderer: {fileID: 8325902284313185905}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.2
+--- !u!114 &3501771150963576910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043275693276879213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4c0e2b69adc844acb30e5b801fd31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyMoviment
+  collider: {fileID: 0}
+  flashColor: {fileID: 0}
+  damageParticleSystem: {fileID: 0}
+  _currentLife: 0
+  startLife: 10
+  _animationBase: {fileID: 0}
+  startAnimationDuration: 0.2
+  startAnimationEase: 27
+  startWithBornAnimation: 1
+  waypoints: []
+  minDistance: 1
+  speed: 2
 --- !u!1 &7908187092700625022
 GameObject:
   m_ObjectHideFlags: 0
