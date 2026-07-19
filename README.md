@@ -163,3 +163,9 @@ A patrol system was implemented in the "Enemy Walk" script for enemies moving be
 ### How to make an enemy faster and slower
 
 At this stage, adjustments were made to the waypoints and enemy prefabs so that the enemies would face the direction of the waypoints while moving across the terrain. Modifications were also made to the projectiles by accessing their corresponding script and adding logic that caused the enemy to be pushed backward upon impact.
+
+## July 19, 2026
+### Adding a weapon to the enemy
+
+In this stage, we are creating an enemy capable of shooting and implementing a system that deals damage to the player upon contact with enemies.
+To achieve this, we implemented logic in the base enemy script so that enemies deal damage when the player touches them. We also adjusted the damage handling for the main character and set up color-flash feedback—triggered by Tweens—that works on both the character and the enemies using `MeshRenderer` and `SkinnedMeshRenderer` components within the `flash()` function. Since the player prefab consists of multiple parts and meshes, we selected the helmet and body to receive the color-flash scripts. We then assigned the relevant elements to the color-flash section of the player controller. As a result, the player now flashes (dark blue) upon contact with enemies, while enemies take damage and flash when hit by projectiles.
