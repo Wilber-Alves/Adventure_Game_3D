@@ -36,8 +36,8 @@ namespace Enemy
             _currentLife = startLife;
         }
 
-        protected virtual void Init() 
-        { 
+        protected virtual void Init()
+        {
             ResetLife();
             BornAnimation();
         }
@@ -64,7 +64,7 @@ namespace Enemy
                 flashColor.Flash();
             }
             if (damageParticleSystem != null)
-            {                 
+            {
                 damageParticleSystem.Emit(15);
             }
 
@@ -84,7 +84,7 @@ namespace Enemy
             transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
         }
         public void PlayAnimationByTrigger(AnimationType animationType)
-        { 
+        {
             _animationBase.PlayAnimationByTrigger(animationType);
 
         }
@@ -97,5 +97,17 @@ namespace Enemy
             OnDamage(damage);
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+                if (player != null)
+                {
+                    player.Damage(1f);
+                }
+            }
+        }
     }
+
 }
