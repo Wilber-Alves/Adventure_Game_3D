@@ -159,3 +159,7 @@ Particle settings were also tweaked to simulate chunks of the slimes being prope
 Today, a script named "Enemy Walk" was created, representing an enemy type that inherits basic information from the base enemy. This "walk" type enemy can move along defined points.
 
 A patrol system was implemented in the "Enemy Walk" script for enemies moving between specific waypoints. The enemy automatically walks from one point to another using `Vector3.MoveTowards`; upon reaching the vicinity of a waypoint (within a configurable minimum distance), it proceeds to the next one. The system operates in a continuous loop, returning to the first waypoint after completing the path
+
+### How to make an enemy faster and slower
+
+At this stage, adjustments were made to the waypoints and enemy prefabs so that the enemies would face the direction of the waypoints while moving across the terrain. Modifications were also made to the projectiles by accessing their corresponding script and adding logic that caused the enemy to be pushed backward upon impact.
