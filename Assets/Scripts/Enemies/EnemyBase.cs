@@ -68,6 +68,8 @@ namespace Enemy
                 damageParticleSystem.Emit(15);
             }
 
+            transform.position -= transform.forward * -1f;
+
             _currentLife -= damage;
             if (_currentLife <= 0)
             {
