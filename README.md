@@ -163,3 +163,5 @@ A patrol system was implemented in the "Enemy Walk" script for enemies moving be
 ### How to make an enemy faster and slower
 
 At this stage, adjustments were made to the waypoints and enemy prefabs so that the enemies would face the direction of the waypoints while moving across the terrain. Modifications were also made to the projectiles by accessing their corresponding script and adding logic that caused the enemy to be pushed backward upon impact.
+
+### Adding a weapon to the enemy
