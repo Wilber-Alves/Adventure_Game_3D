@@ -174,3 +174,6 @@ To achieve this, we implemented logic in the base enemy script so that enemies d
 ### Adding a weapon to the enemy
 
 A minor adjustment was made to Slime Monster 2 to include a weapon. The enemy's weapon features its own projectile and a dedicated material. The base enemy script underwent slight modifications to incorporate a shooting system; specifically, a single line was added to the `BornAnimation()` method within the `Init()` function. A new script named "Enemy Shoots" was created to enable enemies to fire. Work also began on modifying the base projectile collision logic to include enemy and player tags, allowing the system to distinguish between shots so that enemies do not hit themselves—ensuring interactions occur only between player and enemy.
+
+## July 21, 2026
+### Developing the Boss - Part 01
