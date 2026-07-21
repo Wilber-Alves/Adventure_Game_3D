@@ -13733,6 +13733,10 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 1282029550}
+    - target: {fileID: 3431927132250576474, guid: 77e042a36627ba74c90cb243ee4e6a52, type: 3}
+      propertyPath: lookAtPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3813355562443181616, guid: 77e042a36627ba74c90cb243ee4e6a52, type: 3}
       propertyPath: speed
       value: 50
