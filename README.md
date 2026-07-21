@@ -169,3 +169,11 @@ At this stage, adjustments were made to the waypoints and enemy prefabs so that 
 
 In this stage, we are creating an enemy capable of shooting and implementing a system that deals damage to the player upon contact with enemies.
 To achieve this, we implemented logic in the base enemy script so that enemies deal damage when the player touches them. We also adjusted the damage handling for the main character and set up color-flash feedback—triggered by Tweens—that works on both the character and the enemies using `MeshRenderer` and `SkinnedMeshRenderer` components within the `flash()` function. Since the player prefab consists of multiple parts and meshes, we selected the helmet and body to receive the color-flash scripts. We then assigned the relevant elements to the color-flash section of the player controller. As a result, the player now flashes (dark blue) upon contact with enemies, while enemies take damage and flash when hit by projectiles.
+
+## July 20, 2026
+### Adding a weapon to the enemy
+
+A minor adjustment was made to Slime Monster 2 to include a weapon. The enemy's weapon features its own projectile and a dedicated material. The base enemy script underwent slight modifications to incorporate a shooting system; specifically, a single line was added to the `BornAnimation()` method within the `Init()` function. A new script named "Enemy Shoots" was created to enable enemies to fire. Work also began on modifying the base projectile collision logic to include enemy and player tags, allowing the system to distinguish between shots so that enemies do not hit themselves—ensuring interactions occur only between player and enemy.
+
+## July 21, 2026
+### Developing the Boss - Part 01
