@@ -39,7 +39,11 @@ namespace Enemy
         protected virtual void Init()
         {
             ResetLife();
-            BornAnimation();
+            if ((startWithBornAnimation))
+            {
+                BornAnimation();
+            }
+            
         }
 
         protected virtual void Kill()
@@ -109,5 +113,4 @@ namespace Enemy
             }
         }
     }
-
 }
