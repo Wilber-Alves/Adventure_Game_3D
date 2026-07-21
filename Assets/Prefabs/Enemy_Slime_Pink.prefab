@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4816068621744502358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4524454876198381304}
+  m_Layer: 0
+  m_Name: Weapon_Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4524454876198381304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816068621744502358}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.6368068, z: -0, w: 0.7710234}
+  m_LocalPosition: {x: 2.74, y: 1.97, z: 2.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2619751415623987639}
+  m_LocalEulerAnglesHint: {x: 0, y: 79.108, z: 0}
 --- !u!1 &5353088285844221789
 GameObject:
   m_ObjectHideFlags: 0
@@ -4903,10 +4934,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2619751415623987639}
-  - component: {fileID: 3073400649425092579}
+  - component: {fileID: 3431927132250576474}
   - component: {fileID: 1484221660425690385}
   - component: {fileID: 1795482731550646801}
   - component: {fileID: 5923575480026152513}
+  - component: {fileID: 4838521321987822021}
   m_Layer: 0
   m_Name: Enemy_Slime_Pink
   m_TagString: Untagged
@@ -4929,9 +4961,10 @@ Transform:
   m_Children:
   - {fileID: 7947571570259232642}
   - {fileID: 8433897702344979922}
+  - {fileID: 4524454876198381304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 121.237, z: 0}
---- !u!114 &3073400649425092579
+--- !u!114 &3431927132250576474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4940,18 +4973,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8120375755445313829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4a5c4ee2f31e14a83cf3efe2476942, type: 3}
+  m_Script: {fileID: 11500000, guid: 80977d942c94d464d9eda49725a3559f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyBase
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyShoots
   collider: {fileID: 1484221660425690385}
   flashColor: {fileID: 5923575480026152513}
   damageParticleSystem: {fileID: 713332017631355798}
   _currentLife: 0
-  startLife: 30
+  startLife: 10
   _animationBase: {fileID: 1795482731550646801}
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
+  weapon: {fileID: 4917475342186429393, guid: cc2f4f05d50cf2840a58a1c9d0bcf45b, type: 3}
 --- !u!65 &1484221660425690385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5008,8 +5042,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashColor
   meshRenderer: {fileID: 1907240983675782634}
+  skinnedMeshRenderer: {fileID: 0}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.2
+--- !u!54 &4838521321987822021
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120375755445313829}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &8158522764839333158
 GameObject:
   m_ObjectHideFlags: 0
