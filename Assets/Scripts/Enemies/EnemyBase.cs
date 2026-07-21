@@ -25,10 +25,19 @@ namespace Enemy
         public float startAnimationDuration = 0.2f;
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
+        public bool lookAtPlayer = false;
+
+
+        private PlayerController _playerController; 
 
         private void Awake()
         {
             Init();
+        }
+        
+        private void Start()
+        {
+            _playerController = FindFirstObjectByType<PlayerController>();
         }
 
         protected void ResetLife()
@@ -110,6 +119,14 @@ namespace Enemy
                 {
                     player.Damage(1f);
                 }
+            }
+        }
+
+        public virtual void Update() 
+        {
+            if (lookAtPlayer)
+            {
+                transform.LookAt(_playerController.transform.position);
             }
         }
     }
