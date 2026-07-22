@@ -55,7 +55,7 @@ This stage included the movement of the 3D character, both forward and rotation.
 
 (Module 29 submission -  Creating a 3D adventure game: Hero movement - NOTE: The activity began on April 21th and ended on May 3rd.).
 
-## July 11, 2026
+## July 11th, 2026
 ### Creating a 3D adventure game: adding weapons
 
 NOTE: The project was put on hold during May and June so I could complete my end-of-semester college exams. Now, in July, I will focus on finishing the project, taking advantage of the break from both college and work.
@@ -63,7 +63,7 @@ NOTE: The project was put on hold during May and June so I could complete my end
 Today, the base scripts for the character's weapon and its projectiles were created. Code previously developed for the 2D platformer was reused.
 Since the timeframe for completing these tasks is short (about 20 days), I will focus on core mechanics to ensure I can complete as many tasks as possible.
 
-## July 14, 2026
+## July 14th, 2026
 ### Creating a 3D adventure game: Adding a weapon to the character using the new Input System
 
 A script named "Player Ability Base" was created to handle player abilities without cluttering the main Player class; additionally, the "Player Ability Shoot" script was created to implement the initial shooting ability using Unity's new input system. A new folder named "inputs" was added to the project, containing an input action asset to define the player's input maps; this was used to configure the "shoot" ability to trigger when the X key is pressed.
@@ -98,7 +98,7 @@ DG.Tweening was also utilized in the "UI Weapon Updater" to ensure smoother tran
 
 A rapid-fire weapon was created—featuring a 0.2-second interval between shots and a 0.2-second reload time—by inheriting from the weapon base script. Scripts and prefabs for both the weapon and the projectile were created, bringing the total number of weapon types to four (Basic, Limited Shot, Angular Shot, and Rapid Fire).
 
-## July 15, 2026
+## July 15th, 2026
 ### Creating a 3D adventure game: Weapon Selection System
 
 To better integrate weapon switching using Unity's Input System, I created a new action map within the "inputs" Input Action Asset to handle player weapon selection. By pressing keys 1 through 4, the player can choose between the four created weapons. I modified the *Player Ability Shoots* script to adjust the weapon selection logic and updated all weapon Prefabs.
@@ -112,7 +112,7 @@ To better integrate weapon switching using Unity's Input System, I created a new
 
 (Module 30 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 11th and ended on July 15th.).
 
-## July 16, 2026
+## July 16th, 2026
 ### Creating a 3D adventure game: Adding Enemies
 
 ### Basic enemy structure
@@ -137,7 +137,7 @@ __
 <img width="280" height="170" alt="Enemies-DEATH animation" src= "https://github.com/user-attachments/assets/491afb88-bd34-470c-997a-6caddeb401f3" />
 <img width="280" height="170" alt="Enemies-ATTACK animation" src= "https://github.com/user-attachments/assets/2e0e7ac1-ab45-40eb-88bb-1a2647b75116" />
 
-## July 17, 2026
+## July 17th, 2026
 ### Creating a 3D adventure game: Causing the enemy to be affected by the weapon
 
 At this stage, changes were made to the enemy base script so that enemies could take damage upon colliding with a projectile. It was also possible to create an interface called `IDamageable` to manage the damage dealt to the enemies.
@@ -153,7 +153,7 @@ Particle settings were also tweaked to simulate chunks of the slimes being prope
 
 (Module 31 submission -  Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 16th and ended on July 17th.).
 
-## July 18, 2026
+## July 18th, 2026
 ### Creating a 3D adventure game: Adding different types of enemies
 
 Today, a script named "Enemy Walk" was created, representing an enemy type that inherits basic information from the base enemy. This "walk" type enemy can move along defined points.
@@ -164,18 +164,18 @@ A patrol system was implemented in the "Enemy Walk" script for enemies moving be
 
 At this stage, adjustments were made to the waypoints and enemy prefabs so that the enemies would face the direction of the waypoints while moving across the terrain. Modifications were also made to the projectiles by accessing their corresponding script and adding logic that caused the enemy to be pushed backward upon impact.
 
-## July 19, 2026
+## July 19th, 2026
 ### Adding a weapon to the enemy
 
 In this stage, we are creating an enemy capable of shooting and implementing a system that deals damage to the player upon contact with enemies.
 To achieve this, we implemented logic in the base enemy script so that enemies deal damage when the player touches them. We also adjusted the damage handling for the main character and set up color-flash feedback—triggered by Tweens—that works on both the character and the enemies using `MeshRenderer` and `SkinnedMeshRenderer` components within the `flash()` function. Since the player prefab consists of multiple parts and meshes, we selected the helmet and body to receive the color-flash scripts. We then assigned the relevant elements to the color-flash section of the player controller. As a result, the player now flashes (dark blue) upon contact with enemies, while enemies take damage and flash when hit by projectiles.
 
-## July 20, 2026
+## July 20th, 2026
 ### Adding a weapon to the enemy
 
 A minor adjustment was made to Slime Monster 2 to include a weapon. The enemy's weapon features its own projectile and a dedicated material. The base enemy script underwent slight modifications to incorporate a shooting system; specifically, a single line was added to the `BornAnimation()` method within the `Init()` function. A new script named "Enemy Shoots" was created to enable enemies to fire. Work also began on modifying the base projectile collision logic to include enemy and player tags, allowing the system to distinguish between shots so that enemies do not hit themselves—ensuring interactions occur only between player and enemy.
 
-## July 21, 2026
+## July 21th, 2026
 ### Developing the Boss - Part 01
 
 Today, the Boss state machine was implemented; it is structured within the `Boss` folder inside the `Scripts` folder. This folder contains the main scripts managing the Boss's behavioral logic in the game.
@@ -189,3 +189,8 @@ The `OnStateEnter(params object[] objs)` method is overridden to capture this re
 The `BossStateInit` class represents the Boss's initial state and inherits from `BossStateBase`; it can be expanded to include logic specific to this initial state. Meanwhile, the `StateBase` class provides virtual methods—such as `OnStateEnter`, `OnStateStay`, and `OnStateExit`—that can be overridden in derived classes, allowing each state to define its own behavior. Finally, the `StateMachine` class manages state transitions, storing registered states in a dictionary named `dictionaryStates`.
 
 The `SwitchState(T state, params object[] objs)` method is crucial for state switching; when called, it checks for a current state and invokes `OnStateExit()` before switching to the new state and executing `OnStateEnter(objs)` with the additional parameters. This modular and flexible state machine implementation simplifies the Boss's logic, allowing new states to be added in a simple and organized manner.
+
+## July 22th, 2026
+### Developing the Boss - Part 01 and Part 02
+
+To verify functionality, a `public override void OnStateEnter(params object[] objs){base.OnStateEnter(objs);}` method was added to `public class BossStateInit : BossStateBase`, followed by a debug line—`Debug.Log("Boss: "+ boss)`—to attempt to access the boss at this stage. Testing confirmed that the boss reference is successfully retrieved; consequently, the process of setting up the animation logic began, resulting in the creation of the function `public void StartInitiAnimation() {transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();}` to trigger the boss's animations. With the animations working, the boss needed to be able to move using a waypoint system. To achieve this, a coroutine was implemented to direct the boss to random points; utilizing these waypoints, the boss is now able to move randomly in various directions.
