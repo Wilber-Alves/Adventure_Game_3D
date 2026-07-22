@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace EDGEE.StateMachine
 {
@@ -34,11 +33,11 @@ namespace EDGEE.StateMachine
             dictionaryStates.Add(typeEnum, state);
         }
 
-        public void SwitchState(T state)
+        public void SwitchState(T state, params object[] objs) // poderia ser "object o = null" ou "params object[] objs"
         {
             if (_currentState != null) _currentState.OnStateExit();
             _currentState = dictionaryStates[state];
-            _currentState.OnStateEnter();
+            _currentState.OnStateEnter(objs); // aqui poderia se "o" ou "objs" dependendo se uso objeto nulo ou a tecnica de params, respectivamente
         }
 
         public void Update()
