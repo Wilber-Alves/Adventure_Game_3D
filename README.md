@@ -177,3 +177,15 @@ A minor adjustment was made to Slime Monster 2 to include a weapon. The enemy's 
 
 ## July 21, 2026
 ### Developing the Boss - Part 01
+
+Today, the Boss state machine was implemented; it is structured within the `Boss` folder inside the `Scripts` folder. This folder contains the main scripts managing the Boss's behavioral logic in the game.
+
+The `BossAction` enumeration (Enums) defines the Boss's possible states: `INIT`, `IDLE`, `WALK`, and `ATTACK`. The `BossBase` class is responsible for initializing the state machine using the `StateMachine<BossAction>` class.
+
+In the `Init()` method, the state machine is configured, and the `SwitchState(BossAction state)` method allows for changing the current state by passing a reference to the `this` object, which represents the Boss instance. The `BossStateBase` class, which inherits from `StateBase`, contains a protected attribute named `boss` that stores the reference to `BossBase`.
+
+The `OnStateEnter(params object[] objs)` method is overridden to capture this reference from the passed array of objects. Within this method, the call to `base.OnStateEnter(objs)` ensures the base class's default logic executes, while the line `boss = (BossBase)objs[0]` allows access to the Boss instance.
+
+The `BossStateInit` class represents the Boss's initial state and inherits from `BossStateBase`; it can be expanded to include logic specific to this initial state. Meanwhile, the `StateBase` class provides virtual methods—such as `OnStateEnter`, `OnStateStay`, and `OnStateExit`—that can be overridden in derived classes, allowing each state to define its own behavior. Finally, the `StateMachine` class manages state transitions, storing registered states in a dictionary named `dictionaryStates`.
+
+The `SwitchState(T state, params object[] objs)` method is crucial for state switching; when called, it checks for a current state and invokes `OnStateExit()` before switching to the new state and executing `OnStateEnter(objs)` with the additional parameters. This modular and flexible state machine implementation simplifies the Boss's logic, allowing new states to be added in a simple and organized manner.
