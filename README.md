@@ -205,3 +205,5 @@ After this step, we could see the boss moving and attacking by switching states 
 ### Health Base
 
 Inclusion of death state logic and health data. In the `BossState` script, the states were updated to include the death state, and debug logs for state entry and exit were added. In `StateBase`, the debug logs were simply commented out. A new folder named "Health" was created to house the character health scripts. The `HealthBase` script was created to handle the boss's health logic.
+
+(Module 31 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 18th and ended on July 23th.).
