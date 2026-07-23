@@ -36,6 +36,13 @@ namespace Boss
         { 
             boss.SwitchState(BossAction.ATTACK);
         }
+
+        public override void OnStateExit()
+        {
+            base.OnStateExit();
+            Debug.Log("Exit Walk");
+            boss.StopAllCoroutines();
+        }
             
     }
     public class BossStateAttack : BossStateBase
@@ -51,7 +58,23 @@ namespace Boss
             boss.SwitchState(BossAction.WALK);
             
         }
-            
+        public override void OnStateExit()
+        {
+            Debug.Log("Exit Attack");
+            base.OnStateExit();
+            boss.StopAllCoroutines();
+        }
+
+    }
+    public class BossStateDeath : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            Debug.Log("Enter Death");
+            boss.transform.localScale = Vector3.one * - 0.2f; // apenas um feedback para entre os estados de morte. 
+        }
+
     }
 
 }
