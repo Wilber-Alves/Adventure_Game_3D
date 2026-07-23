@@ -1,13 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EDGEE.StateMachine;
 using DG.Tweening;
 
-
 namespace Boss
 {
-
     public enum BossAction
     { 
         INIT,
@@ -23,9 +22,13 @@ namespace Boss
         public float startAnimationDuration = 0.5f;
         public Ease startAnimationEase = Ease.OutBack;
 
+        [Header("Attack")]
+
+        public int attackAmount = 5;
+        public float timeBetweenAttacks = 0.3f;
+
         public float speed = 5f;
         public List<Transform> waypoints;
-
 
         private StateMachine<BossAction> stateMachine;
 
@@ -41,30 +44,57 @@ namespace Boss
 
             stateMachine.RegisterStates(BossAction.INIT, new BossStateInit());
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
+            stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
         }
 
-        #region
+        #region ATTACK
 
-        public void GoToRandomPoint()
-        {
-            StartCoroutine(GoToPointCoroutine(waypoints[Random.Range(0, waypoints.Count)]));
+        public void StartAttack(Action endCallback = null)
+        { 
+            StartCoroutine(AttackCoroutine(endCallback));
         
         }
 
-        IEnumerator GoToPointCoroutine(Transform t)
+        IEnumerator AttackCoroutine(Action endCallback)
+        {
+            int attacks = 0;
+            while (attacks < attackAmount)
+            {
+                attacks++;
+                transform.DOScale(1.1f,.1f).SetLoops(2, LoopType.Yoyo);
+                yield return new WaitForSeconds(timeBetweenAttacks);
+            }
+
+            if (endCallback != null)
+            {
+                endCallback.Invoke();
+            }
+        }
+        #endregion
+
+        #region WALK
+
+        public void GoToRandomPoint(Action onArrive = null) // exemplo de funcáo com callBack chamado Action onArrive
+        {
+            StartCoroutine(GoToPointCoroutine(waypoints[UnityEngine.Random.Range(0, waypoints.Count)], onArrive));
+        }
+
+        IEnumerator GoToPointCoroutine(Transform t, Action onArrive = null)
         {
             while (Vector3.Distance(transform.position, t.position) > 1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, t.position, Time.deltaTime * speed);
                 yield return new WaitForEndOfFrame();
             }
-        
-        
+            if (onArrive != null)
+            {
+                onArrive.Invoke(); // codigo onde ocorre a chamada do callBack criado
+            }
         }
 
         #endregion
 
-        #region Animation
+        #region ANIMATION
 
         public void StartInitiAnimation()
         {
@@ -85,12 +115,17 @@ namespace Boss
         {
             SwitchState(BossAction.WALK);
         }
+        [NaughtyAttributes.Button]
+        private void SwitchAttack()
+        {
+            SwitchState(BossAction.ATTACK);
+        }
 
         #endregion
 
         #region STATE MACHINE
 
-        private void SwitchState(BossAction state)
+        public void SwitchState(BossAction state)
         {
             stateMachine.SwitchState(state, this);
         }
