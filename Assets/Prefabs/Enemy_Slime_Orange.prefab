@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8731116132249590208}
   - component: {fileID: 9134748214919327870}
   - component: {fileID: 6796967274446015210}
+  - component: {fileID: 1663178180352153390}
   m_Layer: 0
   m_Name: Enemy_Slime_Orange
   m_TagString: Untagged
@@ -58,6 +59,7 @@ MonoBehaviour:
   startAnimationDuration: 0.2
   startAnimationEase: 27
   startWithBornAnimation: 1
+  lookAtPlayer: 0
 --- !u!65 &8731116132249590208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -114,8 +116,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashColor
   meshRenderer: {fileID: 4543443787385008252}
+  skinnedMeshRenderer: {fileID: 0}
   color: {r: 1, g: 0, b: 0, a: 1}
   duration: 0.2
+--- !u!114 &1663178180352153390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697236868438116572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac51403c496c544c966bb112a1d34a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss.BossBase
+  startAnimationDuration: 0.5
+  startAnimationEase: 27
+  attackAmount: 5
+  timeBetweenAttacks: 0.3
+  speed: 5
+  waypoints: []
 --- !u!1 &3491801458051755292
 GameObject:
   m_ObjectHideFlags: 0
