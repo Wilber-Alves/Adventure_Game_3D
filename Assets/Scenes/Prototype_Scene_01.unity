@@ -936,8 +936,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1609897841}
   - {fileID: 820564360}
+  - {fileID: 1609897841}
   m_Father: {fileID: 962396255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &291570727
@@ -4282,6 +4282,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4125682165235198722, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
   m_PrefabInstance: {fileID: 2247725652615158587}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &820564361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8984502155301977466, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+  m_PrefabInstance: {fileID: 2247725652615158587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7127cb27c3514b044a505b071266ee80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
 --- !u!1001 &836480891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9779,7 +9790,7 @@ Transform:
   m_GameObject: {fileID: 1690189114}
   serializedVersion: 2
   m_LocalRotation: {x: 0.030978812, y: 0.008014464, z: -0.0002484058, w: 0.9994879}
-  m_LocalPosition: {x: 406.9, y: 1.9899998, z: 33.1}
+  m_LocalPosition: {x: 583.7, y: 34.2, z: 216.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11320,7 +11331,7 @@ Transform:
   m_GameObject: {fileID: 1847492062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 406.9, y: -8.01, z: 53.1}
+  m_LocalPosition: {x: 583.7, y: 24.2, z: 236.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13408,7 +13419,7 @@ Transform:
   m_GameObject: {fileID: 2082730633}
   serializedVersion: 2
   m_LocalRotation: {x: 0.030977758, y: 0.008014132, z: -0.00024838702, w: 0.99948794}
-  m_LocalPosition: {x: 406.9, y: 1.9899998, z: 33.1}
+  m_LocalPosition: {x: 583.7, y: 34.2, z: 216.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13948,6 +13959,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 281113547}
     m_Modifications:
     - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: healthBase
+      value: 
+      objectReference: {fileID: 820564361}
+    - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: waypoints.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -14037,6 +14052,10 @@ PrefabInstance:
       objectReference: {fileID: 1126794563}
     - target: {fileID: 6796967274446015210, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984502155301977466, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: destroyOnKill
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
