@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9134748214919327870}
   - component: {fileID: 6796967274446015210}
   - component: {fileID: 1663178180352153390}
+  - component: {fileID: 8984502155301977466}
   m_Layer: 0
   m_Name: Enemy_Slime_Orange
   m_TagString: Untagged
@@ -137,6 +138,22 @@ MonoBehaviour:
   timeBetweenAttacks: 0.3
   speed: 5
   waypoints: []
+  healthBase: {fileID: 0}
+--- !u!114 &8984502155301977466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697236868438116572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7127cb27c3514b044a505b071266ee80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
+  _currentLife: 0
+  destroyOnKill: 0
+  startLife: 10
 --- !u!1 &3491801458051755292
 GameObject:
   m_ObjectHideFlags: 0
