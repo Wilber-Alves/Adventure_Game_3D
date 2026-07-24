@@ -21,8 +21,11 @@ namespace Boss
         {
             base.OnStateEnter(objs);
             boss.StartInitiAnimation();
+
+            // TESTE: estado INIT nunca saía sozinho para WALK, boss ficava parado para sempre após a animação de entrada.
+            boss.SwitchState(BossAction.WALK);
         }
-            
+
     }
     public class BossStateWalk : BossStateBase
     {
@@ -33,7 +36,7 @@ namespace Boss
         }
 
         private void OnArrive()
-        { 
+        {
             boss.SwitchState(BossAction.ATTACK);
         }
 
@@ -43,12 +46,12 @@ namespace Boss
             Debug.Log("Exit Walk");
             boss.StopAllCoroutines();
         }
-            
+
     }
     public class BossStateAttack : BossStateBase
     {
         public override void OnStateEnter(params object[] objs)
-        {   
+        {
             base.OnStateEnter(objs);
             boss.StartAttack(EndAttacks);
         }
@@ -56,7 +59,7 @@ namespace Boss
         private void EndAttacks()
         {
             boss.SwitchState(BossAction.WALK);
-            
+
         }
         public override void OnStateExit()
         {
@@ -72,7 +75,7 @@ namespace Boss
         {
             base.OnStateEnter(objs);
             Debug.Log("Enter Death");
-            boss.transform.localScale = Vector3.one * - 0.2f; // apenas um feedback para entre os estados de morte. 
+            boss.transform.localScale = Vector3.one * -0.2f; // apenas um feedback para entre os estados de morte. 
         }
 
     }
