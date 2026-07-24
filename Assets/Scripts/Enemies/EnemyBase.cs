@@ -17,6 +17,7 @@ namespace Enemy
         [Header("Health")]
         [SerializeField] private float _currentLife;
         public float startLife = 10f;
+        public bool IsDead { get; private set; } // TESTE, Se nao funcionar, retirar e manter script original
 
         [Header("Animation")]
         [SerializeField] private AnimationBase _animationBase;
@@ -25,24 +26,32 @@ namespace Enemy
         public float startAnimationDuration = 0.2f;
         public Ease startAnimationEase = Ease.OutBack;
         public bool startWithBornAnimation = true;
+
+
+        [Header("Look at Player")] // TESTE, Se nao funcionar, retirar e manter script original
         public bool lookAtPlayer = false;
+        public float lookAtRotationSpeed = 8f;
 
+        [Header("KnockBack")] // TESTE, Se nao funcionar, retirar e manter script original
+        public float knockbackDistance = 0.3f;
+        public float knockbackDuration = 0.15f;
 
-        private PlayerController _playerController; 
+        protected PlayerController playerController;// TESTE, antes era private e o playerController possuia o _ antes
 
         private void Awake()
         {
             Init();
         }
-        
+
         private void Start()
         {
-            _playerController = FindFirstObjectByType<PlayerController>();
+            playerController = FindFirstObjectByType<PlayerController>();
         }
 
         protected void ResetLife()
         {
             _currentLife = startLife;
+            IsDead = false; // TESTE, Se nao funcionar, retirar e manter script original
         }
 
         protected virtual void Init()
@@ -52,11 +61,13 @@ namespace Enemy
             {
                 BornAnimation();
             }
-            
+
         }
 
         protected virtual void Kill()
         {
+            if (IsDead) return; // TESTE, Se nao funcionar, retirar e manter script original
+            IsDead = true; // TESTE, Se nao funcionar, retirar e manter script original
             OnKill();
 
         }
@@ -72,6 +83,8 @@ namespace Enemy
 
         public void OnDamage(float damage)
         {
+            if (IsDead) return; // TESTE, Se nao funcionar, retirar e manter script original
+
             if (flashColor != null)
             {
                 flashColor.Flash();
@@ -81,7 +94,8 @@ namespace Enemy
                 damageParticleSystem.Emit(15);
             }
 
-            transform.position -= transform.forward * -1f;
+            // transform.position -= transform.forward * -1f;
+            ApplyKnockback(); // TESTE, Se nao funcionar, retirar e manter script original
 
             _currentLife -= damage;
             if (_currentLife <= 0)
@@ -90,18 +104,27 @@ namespace Enemy
             }
         }
 
+        public virtual void ApplyKnockback() // TESTE, Se nao funcionar, retirar e manter script original
+        {
+            transform.DOKill();
+            transform.DOMove(transform.position - transform.forward * knockbackDistance, knockbackDuration);
+        }
+
+
         #region ANIMATIONS
 
         private void BornAnimation()
         {
             transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();
         }
+
         public void PlayAnimationByTrigger(AnimationType animationType)
         {
-            _animationBase.PlayAnimationByTrigger(animationType);
-
+            if (_animationBase != null) // TESTE, Se nao funcionar, retirar e manter script original
+            {
+                _animationBase.PlayAnimationByTrigger(animationType);
+            }
         }
-
 
         #endregion
 
@@ -110,24 +133,37 @@ namespace Enemy
             OnDamage(damage);
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
+        protected virtual void OnCollisionEnter(Collision collision) // TESTE,  antes era sp private void
+        {  
+           if (collision.gameObject.CompareTag("Player"))
+           {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
                 if (player != null)
                 {
                     player.Damage(1f);
                 }
-            }
+           }
         }
 
         public virtual void Update() 
         {
-            if (lookAtPlayer)
+            if (lookAtPlayer && playerController != null)
             {
-                transform.LookAt(_playerController.transform.position);
+                //transform.LookAt(playerController.transform.position);
+                LookAtPlayer();
             }
         }
+
+        protected void LookAtPlayer() // TESTE, Se nao funcionar, retirar e manter script original
+        {
+            Vector3 direction = playerController.transform.position - transform.position;
+            direction.y = 0f;
+
+            if (direction.sqrMagnitude < 0.0001f) return;
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * lookAtRotationSpeed);
+        }
+
     }
 }
