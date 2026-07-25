@@ -55,7 +55,7 @@ namespace Boss
         private void Awake()
         {
             Init();
-            healthBase.OnKill += OnBossKill;
+            healthBase.OnKilled += OnBossKill;
 
             if (bossRenderers == null || bossRenderers.Length == 0)
                 bossRenderers = GetComponentsInChildren<Renderer>();
