@@ -170,10 +170,14 @@ At this stage, adjustments were made to the waypoints and enemy prefabs so that 
 In this stage, we are creating an enemy capable of shooting and implementing a system that deals damage to the player upon contact with enemies.
 To achieve this, we implemented logic in the base enemy script so that enemies deal damage when the player touches them. We also adjusted the damage handling for the main character and set up color-flash feedback—triggered by Tweens—that works on both the character and the enemies using `MeshRenderer` and `SkinnedMeshRenderer` components within the `flash()` function. Since the player prefab consists of multiple parts and meshes, we selected the helmet and body to receive the color-flash scripts. We then assigned the relevant elements to the color-flash section of the player controller. As a result, the player now flashes (dark blue) upon contact with enemies, while enemies take damage and flash when hit by projectiles.
 
+<img width="280" height="170" alt="Color-flash effect - damage" src= "https://github.com/user-attachments/assets/109b00ca-17ba-4601-91ad-243d4e258d97"/>
+
 ## July 20th, 2026
 ### Adding a weapon to the enemy
 
 A minor adjustment was made to Slime Monster 2 to include a weapon. The enemy's weapon features its own projectile and a dedicated material. The base enemy script underwent slight modifications to incorporate a shooting system; specifically, a single line was added to the `BornAnimation()` method within the `Init()` function. A new script named "Enemy Shoots" was created to enable enemies to fire. Work also began on modifying the base projectile collision logic to include enemy and player tags, allowing the system to distinguish between shots so that enemies do not hit themselves—ensuring interactions occur only between player and enemy.
+
+<img width="280" height="170" alt="Green Slime Enemy and Pink Slime Enemy" src= "https://github.com/user-attachments/assets/3c7937b1-0645-466e-ada8-dab95f4ecf64"/>
 
 ## July 21th, 2026
 ### Developing the Boss - Part 01
@@ -200,6 +204,8 @@ To verify functionality, a `public override void OnStateEnter(params object[] ob
 I began by creating the boss's attack state. To do this, I added attack states to both `BossStates` and `BossBase`. In `BossBase`, I also included an "Attack" header to organize the variables needed for the state's functionality: `attackAmount` (to determine how many attacks the boss performs before switching states) and `timeBetweenAttacks` (to set the interval between attacks until the sequence is complete). In the `BossBase` code, I created a new region named "ATTACK" containing a public function, `StartAttack()`, linked to a coroutine. In addition to the control variables in the "Attack" header, I included local attack variables within the coroutine, initialized to zero; a `while` loop was used to increment the attack count by 1 as long as the current count remained below the `attackAmount`. Inside the attack coroutine, I used a debug visual indicator—specifically, a transform scale variation using `transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo)`. Once set up, I added the `StartCoroutine` call to the new `StartAttack()` function and invoked this function within the `OnStateEnter` method of the `BossStateAttack` class (in the `BossStates` script), passing the parameters relevant to the attack state.
 
 After this step, we could see the boss moving and attacking by switching states using NaughtyAttributes buttons. Next, we needed to add callbacks to enable the boss to walk and shoot across the scene. By including callbacks such as `onArrive`, the boss triggers an attack after reaching a waypoint, demonstrating that the logic works. Subsequently, I added "End Callbacks" to the `BossBase` script as arguments—specifically `Action endCallbacks`—within the `StartAttack()` and `AttackCoroutine()` functions. This implementation allows the `EndAttacks` function to be called from the `BossStateAttack` class within the `BossStates` script. Inside the `EndAttacks` function, the boss returns to the `Walk` state after firing—using `boss.SwitchState(BossAction.WALK);`—thereby closing the cycle.
+
+<img width="280" height="170" alt="Green Slime Enemy and Pink Slime Enemy" src= "https://github.com/user-attachments/assets/380c9612-f1e6-41cf-911a-9163fc9c20cf"/>
 
 ## July 23th, 2026
 ### Health Base
