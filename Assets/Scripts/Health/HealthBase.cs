@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _currentLife;
     public bool destroyOnKill = false;
@@ -11,8 +11,8 @@ public class HealthBase : MonoBehaviour
 
     public bool IsDead { get; private set; } // TESTE, Se nao funcionar, retirar e manter script original
 
-    public Action<HealthBase> OnDamage; // sao variáveis de controle de feedback
-    public Action<HealthBase> OnKill;
+    public Action<HealthBase> OnDamaged; // sao variáveis de controle de feedback
+    public Action<HealthBase> OnKilled;
 
     private void Awake()
     {
@@ -40,7 +40,7 @@ public class HealthBase : MonoBehaviour
         {
             Destroy(gameObject, 1.2f);
         }
-        OnKill?.Invoke(this);
+        OnKilled?.Invoke(this);
     }
 
     [NaughtyAttributes.Button] // debug de dano
@@ -54,13 +54,20 @@ public class HealthBase : MonoBehaviour
         if (IsDead) return; // TESTE, Se nao funcionar, retirar e manter script original
 
         _currentLife -= damage;
-        OnDamage?.Invoke(this);
+        OnDamaged?.Invoke(this);
 
         if (_currentLife <= 0)
         {
             Kill();
         }
-        
+    }
+    public void Damage(float damage, Vector3 dir)
+    {
+        Damage(damage);
     }
 
+    public void OnDamage(float damage)
+    {
+        Damage(damage);
+    }
 }
