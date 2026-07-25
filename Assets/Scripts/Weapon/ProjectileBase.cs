@@ -32,7 +32,7 @@ public class ProjectileBase : MonoBehaviour
 
                 if (damageable != null)
                 {
-                    damageable.Damage(damageAmount);
+                    damageable.OnDamage(damageAmount);
                 }
                 if (!collision.gameObject.CompareTag("Projectile"))
                 {
