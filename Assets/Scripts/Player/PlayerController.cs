@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour//,IDamageable
 {
     public Animator animator;
     public CharacterController characterController;
@@ -22,6 +23,22 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     [Header("Flash Damage")]
     public List<FlashColor> flashColors;
+
+    public HealthBase healthBase;
+
+    private void OnValidate()
+    {
+        if (healthBase == null)
+        {
+           healthBase = GetComponent<HealthBase>();
+        }
+    }
+
+    private void Awake()
+    {
+        OnValidate();
+        healthBase.OnDamaged += Damage;
+    }
 
     void Update()
     {
@@ -69,10 +86,17 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
 
-    #region Health
-    public void Damage(float damage)
+    #region HEALTH
+    public void Damage(HealthBase h)
     {
        flashColors.ForEach(flashColor => flashColor.Flash());
     }
+
+    public void Damage(float damage)
+    {
+        healthBase.Damage(damage);
+
+    }
     #endregion
 }
+
