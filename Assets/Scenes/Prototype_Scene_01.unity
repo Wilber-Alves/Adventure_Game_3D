@@ -11499,6 +11499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8a36dea92aa6c43b6fe638978ec6bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  colliders: []
   animator: {fileID: 1903732483}
   characterController: {fileID: 1847492063}
   speed: 10
@@ -11581,7 +11582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBase
   _currentLife: 0
-  destroyOnKill: 1
+  destroyOnKill: 0
   startLife: 10
 --- !u!1001 &1854544565
 PrefabInstance:
