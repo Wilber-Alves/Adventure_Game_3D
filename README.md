@@ -194,7 +194,7 @@ The `BossStateInit` class represents the Boss's initial state and inherits from 
 
 The `SwitchState(T state, params object[] objs)` method is crucial for state switching; when called, it checks for a current state and invokes `OnStateExit()` before switching to the new state and executing `OnStateEnter(objs)` with the additional parameters. This modular and flexible state machine implementation simplifies the Boss's logic, allowing new states to be added in a simple and organized manner.
 
-## July 22th, 2026
+## July 22th and 23th, 2026
 ### Developing the Boss - Part 01 and Part 02
 
 To verify functionality, a `public override void OnStateEnter(params object[] objs){base.OnStateEnter(objs);}` method was added to `public class BossStateInit : BossStateBase`, followed by a debug line—`Debug.Log("Boss: "+ boss)`—to attempt to access the boss at this stage. Testing confirmed that the boss reference is successfully retrieved; consequently, the process of setting up the animation logic began, resulting in the creation of the function `public void StartInitiAnimation() {transform.DOScale(0, startAnimationDuration).SetEase(startAnimationEase).From();}` to trigger the boss's animations. With the animations working, the boss needed to be able to move using a waypoint system. To achieve this, a coroutine was implemented to direct the boss to random points; utilizing these waypoints, the boss is now able to move randomly in various directions.
@@ -207,9 +207,16 @@ After this step, we could see the boss moving and attacking by switching states 
 
 <img width="280" height="170" alt="Green Slime Enemy and Pink Slime Enemy" src= "https://github.com/user-attachments/assets/380c9612-f1e6-41cf-911a-9163fc9c20cf"/>
 
-## July 23th, 2026
-### Health Base
+## July 24th, 2026
+### 
+Creating a 3D Adventure Game: Hero's Life - Health Base
 
 Inclusion of death state logic and health data. In the `BossState` script, the states were updated to include the death state, and debug logs for state entry and exit were added. In `StateBase`, the debug logs were simply commented out. A new folder named "Health" was created to house the character health scripts. The `HealthBase` script was created to handle the boss's health logic.
 
 (Module 31 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 18th and ended on July 23th.).
+
+
+## July 26th, 2026
+### Creating a 3D Adventure Game: Hero's Life - Implementing Hero Death
+
+Player death functionality was implemented today, eliminating the need to call "Destroy On Kill" via the Inspector. To achieve this, the `OnKill(HealthBase h)` function was added to the `Awake()` method; this function uses an internal conditional check so that, if the character is alive and takes damage, they enter the death state, trigger the death animation in the Animator, and disable their colliders to prevent shots from continuing to hit the character's body.
