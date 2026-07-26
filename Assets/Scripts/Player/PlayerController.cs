@@ -5,6 +5,8 @@ using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour//,IDamageable
 {
+    public List<Collider> colliders;
+
     public Animator animator;
     public CharacterController characterController;
     public float speed = 10f;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour//,IDamageable
 
     public HealthBase healthBase;
 
+    private bool _alive = true;
+
     private void OnValidate()
     {
         if (healthBase == null)
@@ -38,6 +42,17 @@ public class PlayerController : MonoBehaviour//,IDamageable
     {
         OnValidate();
         healthBase.OnDamaged += Damage;
+        healthBase.OnDamaged += OnKill;
+    }
+
+    private void OnKill(HealthBase h)
+    {
+        if (_alive)
+        {
+            _alive = false;
+            animator.SetTrigger("Death");
+            colliders.ForEach(i => i.enabled = false);
+        }
     }
 
     void Update()
