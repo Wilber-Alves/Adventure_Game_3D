@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour//,IDamageable
     [Header("Flash Damage")]
     public List<FlashColor> flashColors;
 
+    [Header("Life")]
     public HealthBase healthBase;
 
     private bool _alive = true;
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour//,IDamageable
     {
         OnValidate();
         healthBase.OnDamaged += Damage;
-        healthBase.OnDamaged += OnKill;
+        healthBase.OnKilled += OnKill;
     }
 
     private void OnKill(HealthBase h)
