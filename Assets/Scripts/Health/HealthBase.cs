@@ -27,8 +27,9 @@ public class HealthBase : MonoBehaviour, IDamageable
         ResetLife();
     }
 
-    protected void ResetLife()
+    public void ResetLife()
     {
+        IsDead = false;
         _currentLife = startLife;
         // MODIFICAÇÃO: Adicionado UpdateUI(); aqui.
         // MOTIVO: Garante que a barra de vida comece cheia (100%) logo no início do jogo, antes mesmo de sofrer dano.
