@@ -220,3 +220,11 @@ Inclusion of death state logic and health data. In the `BossState` script, the s
 ### Creating a 3D Adventure Game: Hero's Life - Implementing Hero Death
 
 Player death functionality was implemented today, eliminating the need to call "Destroy On Kill" via the Inspector. To achieve this, the `OnKill(HealthBase h)` function was added to the `Awake()` method; this function uses an internal conditional check so that, if the character is alive and takes damage, they enter the death state, trigger the death animation in the Animator, and disable their colliders to prevent shots from continuing to hit the character's body.
+
+## July 28th, 2026
+### Creating a 3D Adventure Game: Adding a life UI to the hero and Adding Checkpoints to the Game
+
+In this stage, the character's health bar was created to respond to hits and physical damage. Also during this stage, the Checkpoint assets were imported into the project. A script named `CheckPointBase.cs` was created to implement the checkpoint logic; when the player touches the collider trigger on the totem, the emission texture lights up, indicating the checkpoint has been reached. The player's new position is set to the checkpoint's location using `PlayerPrefs`. A new function—based on integer "Key" variables—was created to identify which checkpoint is being activated via `PlayerPrefs` based on its specific key number, always prioritizing the checkpoint with the highest value.
+
+<img width="280" height="170" alt="Green Slime Enemy and Pink Slime Enemy" src= "https://github.com/user-attachments/assets/c5457247-17ba-406e-8468-a234296c4d85"/>
+
