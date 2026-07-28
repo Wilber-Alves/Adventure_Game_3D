@@ -226,5 +226,9 @@ Player death functionality was implemented today, eliminating the need to call "
 
 In this stage, the character's health bar was created to respond to hits and physical damage. Also during this stage, the Checkpoint assets were imported into the project. A script named `CheckPointBase.cs` was created to implement the checkpoint logic; when the player touches the collider trigger on the totem, the emission texture lights up, indicating the checkpoint has been reached. The player's new position is set to the checkpoint's location using `PlayerPrefs`. A new function—based on integer "Key" variables—was created to identify which checkpoint is being activated via `PlayerPrefs` based on its specific key number, always prioritizing the checkpoint with the highest value.
 
-<img width="280" height="170" alt="Green Slime Enemy and Pink Slime Enemy" src= "https://github.com/user-attachments/assets/c5457247-17ba-406e-8468-a234296c4d85"/>
+<img width="280" height="170" alt="Checkpoints and Health Bar" src= "https://github.com/user-attachments/assets/c5457247-17ba-406e-8468-a234296c4d85"/>
+
+### Respawning at checkpoints
+
+While implementing the checkpoint system, a bug was observed where the player would die and respawn but stop taking damage, and would always respawn at the same location. The issue where the character stopped taking damage after respawning was fixed: the `ResetLife()` method reset health to zero but failed to reset the `IsDead` flag, causing the `Damage()` method to exit early and never trigger the `FlashColor` effect. The incorrect respawn location issue was also resolved: since the character uses a `CharacterController`, directly modifying `transform.position` was being ignored or reverted by the component; the solution was to disable the `CharacterController` before moving the Transform and re-enable it afterward, allowing the repositioning at the checkpoint to take effect correctly.
 
