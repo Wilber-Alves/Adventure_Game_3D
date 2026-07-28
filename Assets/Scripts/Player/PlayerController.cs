@@ -53,7 +53,17 @@ public class PlayerController : MonoBehaviour//,IDamageable
             _alive = false;
             animator.SetTrigger("Death");
             colliders.ForEach(i => i.enabled = false);
+            Invoke(nameof(Revive), 3f);
         }
+    }
+
+    private void Revive()
+    {
+       _alive = true;
+       healthBase.ResetLife();
+       animator.SetTrigger("Revive");
+       colliders.ForEach(i => i.enabled = true);
+       Respawn();    
     }
 
     void Update()
@@ -101,6 +111,17 @@ public class PlayerController : MonoBehaviour//,IDamageable
         }
     }
 
+    public void Respawn()
+    {
+        if (CheckPointManager.Instance.HasCheckPoint())
+        {
+            Vector3 checkpointPos = CheckPointManager.Instance.GetPositionFromLastCheckPoint();
+
+            characterController.enabled = false;
+            transform.position = checkpointPos;
+            characterController.enabled = true;
+        }
+    }
 
     #region HEALTH
     public void Damage(HealthBase h)
