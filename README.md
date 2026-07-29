@@ -232,3 +232,10 @@ In this stage, the character's health bar was created to respond to hits and phy
 
 While implementing the checkpoint system, a bug was observed where the player would die and respawn but stop taking damage, and would always respawn at the same location. The issue where the character stopped taking damage after respawning was fixed: the `ResetLife()` method reset health to zero but failed to reset the `IsDead` flag, causing the `Damage()` method to exit early and never trigger the `FlashColor` effect. The incorrect respawn location issue was also resolved: since the character uses a `CharacterController`, directly modifying `transform.position` was being ignored or reverted by the component; the solution was to disable the `CharacterController` before moving the Transform and re-enable it afterward, allowing the repositioning at the checkpoint to take effect correctly.
 
+### Creating a UI for the checkpoint
+
+
+A user interface (UI) was created to display a visual message whenever the character reached a checkpoint, providing clear feedback to the player that their progress had been saved. This UI was implemented independently of the `CheckPointManager`; it triggers the moment the checkpoint is activated and automatically disappears after a set duration.
+
+It was determined that the `NullReferenceException` in `CheckPointBase.SaveCheckPoint` occurred because `CheckPointManager.Instance` had not yet been initialized when it was accessed. The fix ensured that the `CheckPointManager` Singleton was created and made available before the `PlayerController`'s `Awake()` method ran, thereby resolving the error. Following this adjustment, the checkpoint system functioned correctly: the UI appears upon touching the totem and vanishes after the configured time, while the respawn mechanism places the player at the last saved checkpoint. The TextMesh Pro package was also imported.
+
