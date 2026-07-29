@@ -239,3 +239,11 @@ A user interface (UI) was created to display a visual message whenever the chara
 
 It was determined that the `NullReferenceException` in `CheckPointBase.SaveCheckPoint` occurred because `CheckPointManager.Instance` had not yet been initialized when it was accessed. The fix ensured that the `CheckPointManager` Singleton was created and made available before the `PlayerController`'s `Awake()` method ran, thereby resolving the error. Following this adjustment, the checkpoint system functioned correctly: the UI appears upon touching the totem and vanishes after the configured time, while the respawn mechanism places the player at the last saved checkpoint. The TextMesh Pro package was also imported.
 
+(Module 31 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 24th and ended on July 28th.).
+
+## July 29th, 2026
+### Creating a 3D Adventure Game: Post-Production and Cameras
+
+
+
+
