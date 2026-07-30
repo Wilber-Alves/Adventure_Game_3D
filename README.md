@@ -262,6 +262,14 @@ To achieve this, a new folder named "Effects" was created within the "Scripts" f
 
 <img width="280" height="170" alt="Effects Post processing - vignette" src= "https://github.com/user-attachments/assets/861dd590-3a2d-4d14-a140-641f8884fb02"/>
 
+## July 30th, 2026
+### Creating a 3D Adventure Game: Adding Cinemachine
+
+For this step, the State-Driven Camera was chosen, allowing us to configure multiple cameras based on a specific parameter, such as the Animator. Since our character has various states—such as Idle, Run and Death — we can include different cameras for each of them.
+
+<img width="280" height="170" alt="IDLE Camera" src="https://github.com/user-attachments/assets/61eccea9-70f6-4f7a-8f7e-826e7d132d18" />
+<img width="280" height="170" alt="RUN Camera" src="https://github.com/user-attachments/assets/b4637e7d-b862-4aaa-913b-30310b438624"/>
+<img width="280" height="170" alt="DEATH Camera" src="https://github.com/user-attachments/assets/f3869cab-5b4b-44a4-ba4c-aab053870a41" />
 
 
 
