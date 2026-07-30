@@ -35,16 +35,38 @@ public class PlayerController : MonoBehaviour//,IDamageable
     {
         if (healthBase == null)
         {
-           healthBase = GetComponent<HealthBase>();
+            healthBase = GetComponent<HealthBase>();
         }
     }
 
     private void Awake()
     {
+        // deixe Awake apenas para inicializações que precisam rodar antes do Start
         OnValidate();
+    }
+
+    private void Start()
+    {
+        // registra eventos em Start para garantir que outros Awake() (ex: EffectsManager) já rodaram
+        if (healthBase == null)
+        {
+            Debug.LogWarning("PlayerController: healthBase não atribuído.", this);
+            return;
+        }
+
         healthBase.OnDamaged += Damage;
         healthBase.OnKilled += OnKill;
     }
+
+    private void OnDestroy()
+    {
+        if (healthBase != null)
+        {
+            healthBase.OnDamaged -= Damage;
+            healthBase.OnKilled -= OnKill;
+        }
+    }
+
 
     private void OnKill(HealthBase h)
     {
@@ -126,12 +148,26 @@ public class PlayerController : MonoBehaviour//,IDamageable
     #region HEALTH
     public void Damage(HealthBase h)
     {
-       flashColors.ForEach(flashColor => flashColor.Flash());
+        // segurança adicional: flashColors pode ser nulo ou conter nulos
+        if (flashColors != null)
+        {
+            for (int i = 0; i < flashColors.Count; i++)
+            {
+                var fc = flashColors[i];
+                if (fc != null) fc.Flash();
+            }
+        }
+
+        if (EffectsManager.Instance != null)
+            EffectsManager.Instance.ChangeVignette();
+        else
+            Debug.LogWarning("EffectsManager não inicializado ao chamar ChangeVignette()", this);
     }
+
 
     public void Damage(float damage)
     {
-        healthBase.Damage(damage);
+        healthBase?.Damage(damage);
 
     }
     #endregion
