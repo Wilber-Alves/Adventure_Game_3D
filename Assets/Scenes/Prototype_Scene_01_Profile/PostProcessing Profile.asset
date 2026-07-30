@@ -64,17 +64,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Vignette
   active: 1
   color:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 0.433389, b: 0, a: 1}
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 0.0783116, b: 0, a: 1}
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.407
+    m_Value: 0.3
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.227
+    m_Value: 0.5
   rounded:
     m_OverrideState: 0
     m_Value: 0
