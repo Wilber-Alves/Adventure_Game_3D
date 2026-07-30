@@ -244,6 +244,25 @@ It was determined that the `NullReferenceException` in `CheckPointBase.SaveCheck
 ## July 29th, 2026
 ### Creating a 3D Adventure Game: Post-Production and Cameras
 
+In this stage, the Post-Processing package was downloaded for the project via Unity's Package Manager to handle the game's post-processing. It is applied to the camera; however, since using it can slow down the game, care must be taken with its implementation. When using layer mode in the Main Camera's Inspector, it is important to create a layer named "PostProcessing" so that the processing affects only that specific layer. After setting this up, we create a GameObject named "PostProcessing" and add the Post-Process Volume component to it. This component functions based on a profile; you simply create the settings and click "New Profile," allowing you to select profiles or use the Inspector menu to create effects.
+
+However, this specific workflow is no longer supported in the Unity version I am using (Unity 6.3 LTS / 6000.3.13f1). Consequently, instead of using layers, I added the Volume component to the Post-Processing object and created a new profile containing a list of components that were previously part of the old "Color Grading" feature:
+
+* Color Adjustments (Post-processing) — for general adjustments to exposure, contrast, saturation, color temperature, and color filters. Shadows, Midtones, Highlights — for tonal range grading.
+
+* White Balance — included within Color Adjustments (temperature/tint).
+
+* Channel Mixer, Lift Gamma Gain, Split Toning, Curves — these also appear as separate overrides in URP, corresponding to the sections previously found within the single "Color Grading" override in PPv2. In PPv2, all of these were grouped under one override called "Color Grading."
+
+In URP, these tools have been split into individual overrides. If you like, send me the list or a screenshot, and I can point out exactly which ones to click.
+
+### Changing Post-Processing settings in real-time
+
+To achieve this, a new folder named "Effects" was created within the "Scripts" folder. Inside it, a new script named "EffectsManager" was added to control the post-processing effects. The namespace `UnityEngine.Rendering.PostProcessing` was included in this script. For this script, I will use a `PostProcessVolume` as a public variable to access post-processing components and apply certain effects to the game. The first of these is a vignette effect that flashes red whenever the hero takes damage.
+
+<img width="280" height="170" alt="Effects Post processing - vignette" src= "https://github.com/user-attachments/assets/861dd590-3a2d-4d14-a140-641f8884fb02"/>
+
+
 
 
 
