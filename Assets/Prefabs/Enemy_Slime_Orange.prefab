@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4125682165235198722}
-  - component: {fileID: 6496710076704309589}
+  - component: {fileID: 6829323957823293787}
   - component: {fileID: 8731116132249590208}
   - component: {fileID: 9134748214919327870}
   - component: {fileID: 6796967274446015210}
   - component: {fileID: 1663178180352153390}
-  - component: {fileID: 8984502155301977466}
   m_Layer: 0
   m_Name: Enemy_Slime_Orange
   m_TagString: Untagged
@@ -39,7 +38,7 @@ Transform:
   - {fileID: 6006628051772655237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 147.912, z: 0}
---- !u!114 &6496710076704309589
+--- !u!114 &6829323957823293787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,9 +47,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2697236868438116572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4a5c4ee2f31e14a83cf3efe2476942, type: 3}
+  m_Script: {fileID: 11500000, guid: d1c426e7fdabcd349ab31f7bffde673d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy.EnemyBase
+  m_EditorClassIdentifier: Assembly-CSharp::Boss.EnemyBoss
   collider: {fileID: 8731116132249590208}
   flashColor: {fileID: 6796967274446015210}
   damageParticleSystem: {fileID: 2891678773967818709}
@@ -139,24 +138,13 @@ MonoBehaviour:
   startAnimationEase: 27
   attackAmount: 5
   timeBetweenAttacks: 0.3
+  weapon: {fileID: 0}
   speed: 5
   waypoints: []
-  healthBase: {fileID: 0}
---- !u!114 &8984502155301977466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2697236868438116572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7127cb27c3514b044a505b071266ee80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
-  _currentLife: 0
-  destroyOnKill: 0
-  startLife: 10
+  enemyBoss: {fileID: 0}
+  player: {fileID: 0}
+  lookAtRotationSpeed: 0
+  bossRenderers: []
 --- !u!1 &3491801458051755292
 GameObject:
   m_ObjectHideFlags: 0

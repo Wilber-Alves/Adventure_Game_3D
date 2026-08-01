@@ -5,22 +5,24 @@ namespace Boss
     [RequireComponent(typeof(Collider))]
     public class BossTrigger : MonoBehaviour
     {
-        [SerializeField] private BossBase boss;
+        [SerializeField] private BossBase _boss;
+        [SerializeField] private EnemyBoss _enemyBoss;
         [SerializeField] private string playerTag = "Player";
 
         public GameObject bossCamera;
 
         private bool triggered = false;
-        private bool cameraOn = false;
 
         private void Awake()
         {
             bossCamera.SetActive(false);
+            Debug.Log($"[BossTrigger] Awake(). _enemyBoss é null? {_enemyBoss == null}. InstanceID={(_enemyBoss != null ? _enemyBoss.GetInstanceID().ToString() : "N/A")}");
+            if (_enemyBoss != null)
+                _enemyBoss.OnBossKilled += OnBossKilled;
         }
 
         private void Reset()
         {
-            // Garante que o collider deste objeto seja um trigger
             GetComponent<Collider>().isTrigger = true;
         }
 
@@ -31,15 +33,21 @@ namespace Boss
 
             triggered = true;
             TurnCameraOn();
-            boss.Activate();
-                        
-            // Opcional: desativa o próprio collider/trigger para não disparar de novo
+            _boss.Activate();
+
             GetComponent<Collider>().enabled = false;
         }
 
         private void TurnCameraOn()
-        { 
+        {
             bossCamera.SetActive(true);
+        }
+
+        private void OnBossKilled(EnemyBoss e)
+        {
+            Debug.Log($"[BossTrigger] OnBossKilled RECEBIDO! InstanceID do enemy recebido={e.GetInstanceID()} | Desativando câmera agora. bossCamera antes={bossCamera.activeSelf}");
+            bossCamera.SetActive(false);
+            Debug.Log($"[BossTrigger] bossCamera.activeSelf depois de SetActive(false) = {bossCamera.activeSelf}");
         }
     }
 }

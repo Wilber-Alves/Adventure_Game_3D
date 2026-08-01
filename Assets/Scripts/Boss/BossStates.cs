@@ -1,5 +1,6 @@
-using UnityEngine;
+using DG.Tweening;
 using EDGEE.StateMachine;
+using UnityEngine;
 
 namespace Boss
 {
@@ -20,10 +21,8 @@ namespace Boss
         public override void OnStateEnter(params object[] objs)
         {
             base.OnStateEnter(objs);
-            boss.StartInitiAnimation();
-
-            // TESTE: estado INIT nunca saía sozinho para WALK, boss ficava parado para sempre após a animação de entrada.
-            boss.SwitchState(BossAction.WALK);
+            boss.transform.localScale = Vector3.zero; // garante ponto de partida visível e controlado
+            boss.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBack).OnComplete(() => {boss.SwitchState(BossAction.WALK);});
         }
 
     }
@@ -75,9 +74,8 @@ namespace Boss
         {
             base.OnStateEnter(objs);
             Debug.Log("Enter Death");
-            boss.transform.localScale = Vector3.one * -0.2f; // apenas um feedback para entre os estados de morte. 
+            boss.transform.DOKill(); // garante que nenhuma tween antiga (ataque/nascimento) continue rodando por cima
+            boss.transform.DOScale(0f, 0.5f).SetEase(Ease.InBack); // encolhe suavemente até sumir, sem escala negativa
         }
-
     }
-
 }

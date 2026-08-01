@@ -1094,9 +1094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0621e48197203fb47aecba840c64b85c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boss.BossTrigger
-  boss: {fileID: 917267421}
+  _boss: {fileID: 917267421}
+  _enemyBoss: {fileID: 1400089606}
   playerTag: Player
-  bossCamera: {fileID: 1385850054}
+  bossCamera: {fileID: 1436489357}
 --- !u!1001 &228568003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5283,17 +5284,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4125682165235198722, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
   m_PrefabInstance: {fileID: 2247725652615158587}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &820564361 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8984502155301977466, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
-  m_PrefabInstance: {fileID: 2247725652615158587}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7127cb27c3514b044a505b071266ee80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthBase
 --- !u!21 &828058718
 Material:
   serializedVersion: 8
@@ -9322,13 +9312,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
   Composition:
-    ScreenPosition: {x: 0.00000023841858, y: 0.40833336}
+    ScreenPosition: {x: 0.00000017881393, y: 0.375926}
     DeadZone:
-      Enabled: 0
-      Size: {x: 0.2, y: 0.2}
+      Enabled: 1
+      Size: {x: 0.45208347, y: 0.2}
     HardLimits:
-      Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Enabled: 1
+      Size: {x: 0.8, y: 1.2351847}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -9371,7 +9361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 4
+    m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -9408,13 +9398,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385850054}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039444488, y: 0.28397423, z: 0.011692919, w: 0.9579489}
+  m_LocalRotation: {x: -0.028395796, y: 0.28409025, z: 0.008417646, w: 0.95834005}
   m_LocalPosition: {x: -16.03006, y: 4.9666834, z: -13.264969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436489358}
   m_LocalEulerAnglesHint: {x: 23.844, y: -367.595, z: 0}
+--- !u!114 &1400089606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6829323957823293787, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+  m_PrefabInstance: {fileID: 2247725652615158587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c426e7fdabcd349ab31f7bffde673d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Boss.EnemyBoss
 --- !u!1 &1420376303
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,6 +9556,7 @@ Transform:
   m_Children:
   - {fileID: 467231098}
   - {fileID: 1385850058}
+  - {fileID: 2066509067}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1440425867
@@ -14933,6 +14935,131 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 2066154200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066509066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066509067}
+  - component: {fileID: 2066509070}
+  - component: {fileID: 2066509069}
+  - component: {fileID: 2066509068}
+  m_Layer: 0
+  m_Name: CM vcam - TARGETBeckPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066509067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066509066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.082100995, y: -0.06809418, z: -0.005622767, w: 0.99427915}
+  m_LocalPosition: {x: -3.780243, y: 1.8903999, z: -18.414108}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1436489358}
+  m_LocalEulerAnglesHint: {x: 23.844, y: -367.595, z: 0}
+--- !u!114 &2066509068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066509066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f38bda98361e1de48a4ca2bd86ea3c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
+  Composition:
+    ScreenPosition: {x: -0.009374827, y: 0.3703705}
+    DeadZone:
+      Enabled: 0
+      Size: {x: 0.2, y: 0.2}
+    HardLimits:
+      Enabled: 0
+      Size: {x: 0.8, y: 0.8}
+      Offset: {x: 0, y: 0}
+  CenterOnActivate: 1
+  TargetOffset: {x: 0, y: 0, z: 0}
+  Damping: {x: 0.5, y: 0.5}
+  Lookahead:
+    Enabled: 0
+    Time: 0
+    Smoothing: 0
+    IgnoreY: 0
+--- !u!114 &2066509069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066509066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
+  TrackerSettings:
+    BindingMode: 3
+    PositionDamping: {x: 1, y: 1, z: 1}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 3, y: 2, z: -20}
+--- !u!114 &2066509070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066509066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 1847492065}
+    LookAtTarget: {fileID: 1847492065}
+    CustomLookAtTarget: 1
+  Lens:
+    FieldOfView: 40
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 2
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1001 &2066524854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15298,7 +15425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082730633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.03944449, y: 0.28397423, z: 0.01169292, w: 0.95794886}
+  m_LocalRotation: {x: -0.028395796, y: 0.28409025, z: 0.008417649, w: 0.95834}
   m_LocalPosition: {x: 492.9502, y: -3.4237165, z: 128.34914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15875,9 +16002,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1847492065}
+    - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: enemyBoss
+      value: 
+      objectReference: {fileID: 1400089606}
+    - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: bossCamera
+      value: 
+      objectReference: {fileID: 1436489357}
+    - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: healthBase
       value: 
-      objectReference: {fileID: 820564361}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: _stateDrivenCamera
+      value: 
+      objectReference: {fileID: 82430573}
     - target: {fileID: 1663178180352153390, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: waypoints.Array.size
       value: 3
@@ -15974,9 +16117,29 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 1126794563}
+    - target: {fileID: 6496710076704309589, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496710076704309589, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: startWithBornAnimation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6796967274446015210, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829323957823293787, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: lookAtPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829323957823293787, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: startWithBornAnimation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8984502155301977466, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8984502155301977466, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
       propertyPath: destroyOnKill

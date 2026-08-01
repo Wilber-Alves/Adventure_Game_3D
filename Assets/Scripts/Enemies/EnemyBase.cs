@@ -106,7 +106,7 @@ namespace Enemy
 
         public virtual void ApplyKnockback() // TESTE, Se nao funcionar, retirar e manter script original
         {
-            transform.DOKill();
+            transform.DOComplete(); // força qualquer tween pendente (escala, posição) a terminar no valor final, em vez de travar no meio
             transform.DOMove(transform.position - transform.forward * knockbackDistance, knockbackDuration);
         }
 
