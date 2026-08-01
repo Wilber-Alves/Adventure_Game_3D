@@ -271,6 +271,9 @@ For this step, the State-Driven Camera was chosen, allowing us to configure mult
 <img width="280" height="170" alt="RUN Camera" src="https://github.com/user-attachments/assets/b4637e7d-b862-4aaa-913b-30310b438624"/>
 <img width="280" height="170" alt="DEATH Camera" src="https://github.com/user-attachments/assets/f3869cab-5b4b-44a4-ba4c-aab053870a41" />
 
+## July 31th, 2026
+### Creating a 3D Adventure Game: Creating Cinemachine Triggers
 
+In this stage, I worked on creating camera triggers and using a camera type known as a "Target Group." This allows the camera to focus on multiple components simultaneously—such as the boss and the player. The camera was configured to focus on both the player and the boss, activating only when the hero crosses the trigger. I utilized the existing `bossTrigger` script to incorporate the camera activation logic via the `TurnCameraOn()` function.
 
 
