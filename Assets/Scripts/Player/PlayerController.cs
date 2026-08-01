@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour//,IDamageable
     public float jumpSpeed = 5f;
 
     private float vSpeed = 0f;
-
+    
+    [SerializeField] private bool shakeCameraOnShoot = false;
 
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -49,8 +50,7 @@ public class PlayerController : MonoBehaviour//,IDamageable
     {
         // registra eventos em Start para garantir que outros Awake() (ex: EffectsManager) já rodaram
         if (healthBase == null)
-        {
-            Debug.LogWarning("PlayerController: healthBase não atribuído.", this);
+        { 
             return;
         }
 
@@ -155,6 +155,10 @@ public class PlayerController : MonoBehaviour//,IDamageable
             {
                 var fc = flashColors[i];
                 if (fc != null) fc.Flash();
+                if (shakeCameraOnShoot)
+                {
+                    CameraShaker.Instance.Shake();
+                }
             }
         }
 

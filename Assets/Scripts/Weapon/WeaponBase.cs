@@ -9,6 +9,9 @@ public class WeaponBase : MonoBehaviour
     public Transform positionToShoot;
     public float timeBetweenShoot = 0.3f;
     public float speed = 50f;
+
+    [SerializeField] private bool shakeCameraOnShoot = false;
+
     private Coroutine _currentCoroutine;
 
     protected virtual IEnumerator ShootCoroutine()
@@ -25,6 +28,11 @@ public class WeaponBase : MonoBehaviour
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.position = positionToShoot.position;
         projectile.transform.rotation = positionToShoot.rotation;
+
+        if (shakeCameraOnShoot)
+        {
+            CameraShaker.Instance.Shake();
+        }
     }
 
     public void StartShoot()

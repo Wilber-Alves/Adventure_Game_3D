@@ -139,6 +139,7 @@ MonoBehaviour:
   positionToShoot: {fileID: 646117317949070022}
   timeBetweenShoot: 1
   speed: 50
+  shakeCameraOnShoot: 1
   uIWeaponUpdaters: []
   maxShoot: 5
   timeToRecharge: 1

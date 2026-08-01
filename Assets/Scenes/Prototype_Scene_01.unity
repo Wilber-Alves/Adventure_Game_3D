@@ -1985,7 +1985,7 @@ Transform:
   m_GameObject: {fileID: 341177274}
   serializedVersion: 2
   m_LocalRotation: {x: -0.04385566, y: 0.90817714, z: -0.09847184, w: -0.40446797}
-  m_LocalPosition: {x: 119.80002, y: 0.3699999, z: 153.58}
+  m_LocalPosition: {x: 35.80002, y: 1.29, z: 62.079994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2601,6 +2601,7 @@ GameObject:
   - component: {fileID: 418759405}
   - component: {fileID: 418759404}
   - component: {fileID: 418759403}
+  - component: {fileID: 418759406}
   m_Layer: 0
   m_Name: CM vcam - IDLE
   m_TagString: Untagged
@@ -2617,7 +2618,7 @@ Transform:
   m_GameObject: {fileID: 418759401}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0029607688, y: 0.9922161, z: -0.024050644, w: -0.12214737}
-  m_LocalPosition: {x: 104.80002, y: -7.63, z: 155.58}
+  m_LocalPosition: {x: 20.800018, y: -6.71, z: 64.079994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2714,6 +2715,23 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &418759406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418759401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &443283782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,7 +3205,7 @@ Transform:
   m_GameObject: {fileID: 467231097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0300598, y: -0.033316612, z: 6.735031}
+  m_LocalPosition: {x: -77.72812, y: 0.7908778, z: -74.57743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9292,6 +9310,7 @@ GameObject:
   - component: {fileID: 1385850057}
   - component: {fileID: 1385850056}
   - component: {fileID: 1385850055}
+  - component: {fileID: 1385850060}
   m_Layer: 0
   m_Name: CM vcam - TARGET
   m_TagString: Untagged
@@ -9361,7 +9380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 0
+    m_Value: -1
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -9399,12 +9418,29 @@ Transform:
   m_GameObject: {fileID: 1385850054}
   serializedVersion: 2
   m_LocalRotation: {x: -0.028395796, y: 0.28409025, z: 0.008417646, w: 0.95834005}
-  m_LocalPosition: {x: -16.03006, y: 4.9666834, z: -13.264969}
+  m_LocalPosition: {x: -90.72812, y: 5.790878, z: -94.57743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1436489358}
   m_LocalEulerAnglesHint: {x: 23.844, y: -367.595, z: 0}
+--- !u!114 &1385850060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385850054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1400089606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6829323957823293787, guid: 5a8d484c364234144bf6ae10ced92c10, type: 3}
@@ -11365,6 +11401,8 @@ GameObject:
   - component: {fileID: 1690189119}
   - component: {fileID: 1690189118}
   - component: {fileID: 1690189117}
+  - component: {fileID: 1690189120}
+  - component: {fileID: 1690189121}
   m_Layer: 0
   m_Name: 'CM vcam - RUN '
   m_TagString: Untagged
@@ -11381,7 +11419,7 @@ Transform:
   m_GameObject: {fileID: 1690189114}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12692145, y: 0.000000025760091, z: -0.0000000043132644, w: 0.99191284}
-  m_LocalPosition: {x: 99.80002, y: 0.3699999, z: 120.579994}
+  m_LocalPosition: {x: 15.800018, y: 1.29, z: 29.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11478,6 +11516,38 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1690189120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690189114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1690189121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690189114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d7ea68abec81043a8c24d27a298e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShaker
+  defaultAmplitude: 2
+  defaultFrequency: 2
+  defaultDuration: 0.2
 --- !u!1 &1699138018
 GameObject:
   m_ObjectHideFlags: 0
@@ -13073,6 +13143,7 @@ MonoBehaviour:
   turnSpeed: 300
   gravity: 9.8
   jumpSpeed: 10
+  shakeCameraOnShoot: 1
   jumpKey: 32
   keyRun: 304
   speedRun: 1.5
@@ -13089,7 +13160,7 @@ Transform:
   m_GameObject: {fileID: 1847492062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 502.2, y: -8.5, z: 143.2}
+  m_LocalPosition: {x: 418.2, y: -7.58, z: 51.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14963,7 +15034,7 @@ Transform:
   m_GameObject: {fileID: 2066509066}
   serializedVersion: 2
   m_LocalRotation: {x: -0.082100995, y: -0.06809418, z: -0.005622767, w: 0.99427915}
-  m_LocalPosition: {x: -3.780243, y: 1.8903999, z: -18.414108}
+  m_LocalPosition: {x: -87.78024, y: 2.8104, z: -109.91411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15425,8 +15496,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082730633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.028395796, y: 0.28409025, z: 0.008417649, w: 0.95834}
-  m_LocalPosition: {x: 492.9502, y: -3.4237165, z: 128.34914}
+  m_LocalRotation: {x: -0.08210102, y: -0.06809419, z: -0.005622768, w: 0.99427915}
+  m_LocalPosition: {x: 421.2, y: -5.58, z: 31.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

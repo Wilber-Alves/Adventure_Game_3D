@@ -16,7 +16,7 @@ namespace Boss
         private void Awake()
         {
             bossCamera.SetActive(false);
-            Debug.Log($"[BossTrigger] Awake(). _enemyBoss é null? {_enemyBoss == null}. InstanceID={(_enemyBoss != null ? _enemyBoss.GetInstanceID().ToString() : "N/A")}");
+     
             if (_enemyBoss != null)
                 _enemyBoss.OnBossKilled += OnBossKilled;
         }
@@ -45,9 +45,9 @@ namespace Boss
 
         private void OnBossKilled(EnemyBoss e)
         {
-            Debug.Log($"[BossTrigger] OnBossKilled RECEBIDO! InstanceID do enemy recebido={e.GetInstanceID()} | Desativando câmera agora. bossCamera antes={bossCamera.activeSelf}");
+
             bossCamera.SetActive(false);
-            Debug.Log($"[BossTrigger] bossCamera.activeSelf depois de SetActive(false) = {bossCamera.activeSelf}");
+
         }
     }
 }
