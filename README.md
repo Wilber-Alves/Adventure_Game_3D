@@ -213,7 +213,7 @@ Creating a 3D Adventure Game: Hero's Life - Health Base
 
 Inclusion of death state logic and health data. In the `BossState` script, the states were updated to include the death state, and debug logs for state entry and exit were added. In `StateBase`, the debug logs were simply commented out. A new folder named "Health" was created to house the character health scripts. The `HealthBase` script was created to handle the boss's health logic.
 
-(Module 31 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 18th and ended on July 23th.).
+(Module 32 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 18th and ended on July 23th.).
 
 
 ## July 26th, 2026
@@ -239,7 +239,7 @@ A user interface (UI) was created to display a visual message whenever the chara
 
 It was determined that the `NullReferenceException` in `CheckPointBase.SaveCheckPoint` occurred because `CheckPointManager.Instance` had not yet been initialized when it was accessed. The fix ensured that the `CheckPointManager` Singleton was created and made available before the `PlayerController`'s `Awake()` method ran, thereby resolving the error. Following this adjustment, the checkpoint system functioned correctly: the UI appears upon touching the totem and vanishes after the configured time, while the respawn mechanism places the player at the last saved checkpoint. The TextMesh Pro package was also imported.
 
-(Module 31 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 24th and ended on July 28th.).
+(Module 33 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 24th and ended on July 28th.).
 
 ## July 29th, 2026
 ### Creating a 3D Adventure Game: Post-Production and Cameras
@@ -276,4 +276,8 @@ For this step, the State-Driven Camera was chosen, allowing us to configure mult
 
 In this stage, I worked on creating camera triggers and using a camera type known as a "Target Group." This allows the camera to focus on multiple components simultaneously—such as the boss and the player. The camera was configured to focus on both the player and the boss, activating only when the hero crosses the trigger. I utilized the existing `bossTrigger` script to incorporate the camera activation logic via the `TurnCameraOn()` function.
 
+### Creating a 3D Adventure Game: Adding ScreenShake
 
+Fixed CameraShaker (Singleton) to call base.Awake() correctly, ensuring the Instance is assigned. Added a noise reset (in OnEnable) to prevent residual shaking when switching cameras or character states. Identified that the shake at the start of the game was caused by Shake() being called by any enemy using the shared WeaponBase. Added a shakeCameraOnShoot flag to restrict camera shake to the hero's shots; the same logic was applied so the screen shakes when the hero takes damage.
+
+(Module 34 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 28th and ended on July 31th.).
