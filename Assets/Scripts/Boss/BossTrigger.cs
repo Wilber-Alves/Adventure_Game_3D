@@ -8,7 +8,15 @@ namespace Boss
         [SerializeField] private BossBase boss;
         [SerializeField] private string playerTag = "Player";
 
+        public GameObject bossCamera;
+
         private bool triggered = false;
+        private bool cameraOn = false;
+
+        private void Awake()
+        {
+            bossCamera.SetActive(false);
+        }
 
         private void Reset()
         {
@@ -22,10 +30,16 @@ namespace Boss
             if (!other.CompareTag(playerTag)) return;
 
             triggered = true;
+            TurnCameraOn();
             boss.Activate();
-
+                        
             // Opcional: desativa o próprio collider/trigger para não disparar de novo
             GetComponent<Collider>().enabled = false;
+        }
+
+        private void TurnCameraOn()
+        { 
+            bossCamera.SetActive(true);
         }
     }
 }
