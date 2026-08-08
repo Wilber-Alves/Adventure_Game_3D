@@ -281,3 +281,11 @@ In this stage, I worked on creating camera triggers and using a camera type know
 Fixed CameraShaker (Singleton) to call base.Awake() correctly, ensuring the Instance is assigned. Added a noise reset (in OnEnable) to prevent residual shaking when switching cameras or character states. Identified that the shake at the start of the game was caused by Shake() being called by any enemy using the shared WeaponBase. Added a shakeCameraOnShoot flag to restrict camera shake to the hero's shots; the same logic was applied so the screen shakes when the hero takes damage.
 
 (Module 34 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on July 28th and ended on July 31th.).
+
+## August 07th, 2026
+### Creating a 3D adventure game: Items
+
+For this project, a package containing coin prefabs was imported to implement item collection logic. Additionally, item scripts and ScriptableObjects from the 2D game project were reused during this stage; the following folders were imported into the project (while not all will be used, we will utilize them here—with some adaptations—since the scripts reference them).
+
+Importing the ScriptableObjects folder from the 2D game project: 1) Enemy death count script, 2) Float and int-type ScriptableObjects for healing items and coins, 3) ScriptableObjects for player movement – ​​animation 1, 4) ScriptableObjects for player movement – ​​animation 2, 5) Player ScriptableObjects with two configuration types.
+
