@@ -42,7 +42,7 @@ public class HUDController : MonoBehaviour
         }
 
 
-        if (InventoryBase.hasWeapon && weaponIcon != null)
+       // if (InventoryBase.hasWeapon && weaponIcon != null)
         {
             weaponIcon.enabled = true;
         }

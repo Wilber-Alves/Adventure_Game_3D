@@ -16,7 +16,7 @@ public class ItemCollectableHealth : ItemCollectableBase
             var health = player.GetComponent<HealthBase>();
             if (health != null)
             {
-                health.AddHealth(healthAmount);
+                //health.AddHealth(healthAmount);
                 base.OnCollect();
             }
         }
