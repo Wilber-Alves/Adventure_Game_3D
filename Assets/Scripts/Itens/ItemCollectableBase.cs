@@ -8,7 +8,7 @@ public class ItemCollectableBase : MonoBehaviour
     public string compareTag = "Player";
     
     [Header("Particles")]
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
 
     [Header("Sounds")]
     public AudioSource audioSource;
@@ -19,7 +19,7 @@ public class ItemCollectableBase : MonoBehaviour
         if (particleSystem != null) particleSystem.transform.SetParent(null);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.transform.CompareTag(compareTag))
         {
@@ -31,7 +31,7 @@ public class ItemCollectableBase : MonoBehaviour
     protected virtual void Collect()
     {
         if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
-        if (GetComponent<Collider2D>() != null) GetComponent<Collider2D>().enabled = false;
+        if (GetComponent<Collider>() != null) GetComponent<Collider>().enabled = false;
 
         OnCollect();    
     }
