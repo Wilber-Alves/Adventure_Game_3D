@@ -289,3 +289,7 @@ For this project, a package containing coin prefabs was imported to implement it
 
 Importing the ScriptableObjects folder from the 2D game project: 1) Enemy death count script, 2) Float and int-type ScriptableObjects for healing items and coins, 3) ScriptableObjects for player movement – ​​animation 1, 4) ScriptableObjects for player movement – ​​animation 2, 5) Player ScriptableObjects with two configuration types.
 
+## August 09th, 2026
+### Creating a 3D adventure game: Creating an Inventory
+
+By utilizing the ScriptableObjects from the 2D platformer project, it was possible to reuse and adapt code for the 3D adventure game project. The Item Manager was adjusted to create a list of items—such as Coins and Life packs—that could be added to the inventory. The project involved extensive script modifications, requiring additional time to review the code and ensure there were no conflicts with the ScriptableObjects and items carried over from the previous project.
