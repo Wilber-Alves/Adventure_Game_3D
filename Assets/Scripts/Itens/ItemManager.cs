@@ -1,27 +1,66 @@
 using EDGEE.Core.Singleton;
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
-public class ItemManager : Singleton<ItemManager>
+namespace Items
 {
-    public SOFloat totalCoins;
-
-    void Start()
+    public enum ItemType
     {
-        Reset();
+        COIN,
+        LIFE_PACK
     }
 
-    private void Reset()
+    public class ItemManager : Singleton<ItemManager>
     {
-        if (totalCoins != null)
-            totalCoins.valueFloat = 0;
-    }
+        public List<ItemSetup> itemSetup;
 
-    public void AddCoins(float amount = 0.5f)
-    {
-        if (totalCoins != null)
+        void Start()
         {
-            totalCoins.valueFloat += amount;
-            Debug.Log("Colected Coin! Total: " + totalCoins.valueFloat);
+            Reset();
         }
+
+        private void Reset()
+        {
+            foreach (var item in itemSetup)
+            {
+                item.soInt.valueInt = 0;
+            }
+        }
+        [NaughtyAttributes.Button]
+        private void AddCoin()
+        {
+            AddByType(ItemType.COIN);
+        }
+
+        [NaughtyAttributes.Button]
+        private void AddLifePack()
+        {
+            AddByType(ItemType.LIFE_PACK);
+        }
+
+
+        public void AddByType(ItemType itemType, int amount = 1)
+        {
+            itemSetup.Find(i => i.itemType == itemType).soInt.valueInt += amount;
+        }
+
+        public void RemoveByType(ItemType itemType, int amount = -1)
+        {
+            if (amount > 0) return;
+
+            var item = itemSetup.Find(i => i.itemType == itemType);
+            item.soInt.valueInt -= amount;
+
+            if (item.soInt.valueInt < 0) item.soInt.valueInt = 0;
+        }
+
+        [System.Serializable]
+        public class ItemSetup
+        { 
+            public ItemType itemType;
+            public SOInt soInt;
+        }
+
     }
 }
