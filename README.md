@@ -254,7 +254,7 @@ However, this specific workflow is no longer supported in the Unity version I am
 
 * Channel Mixer, Lift Gamma Gain, Split Toning, Curves — these also appear as separate overrides in URP, corresponding to the sections previously found within the single "Color Grading" override in PPv2. In PPv2, all of these were grouped under one override called "Color Grading."
 
-In URP, these tools have been split into individual overrides. If you like, send me the list or a screenshot, and I can point out exactly which ones to click.
+In URP, these tools have been split into individual overrides.
 
 ### Changing Post-Processing settings in real-time
 
