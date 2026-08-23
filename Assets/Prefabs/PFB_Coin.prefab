@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9221347110597544448}
-  - component: {fileID: 1823689018436925166}
   - component: {fileID: 4973475205148797491}
   - component: {fileID: 6336155093110773417}
+  - component: {fileID: -2524071618111683658}
   m_Layer: 0
   m_Name: PFB_Coin
   m_TagString: Untagged
@@ -35,21 +35,6 @@ Transform:
   - {fileID: 5634999588636985074}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1823689018436925166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3374696387983205002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f79a4166f8ba648b75bf0df459e100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemCollectableBase
-  compareTag: Player
-  particleSystem: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!114 &4973475205148797491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +71,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.0641699
   m_Center: {x: 0.00064086914, y: 0, z: -0.017230034}
+--- !u!114 &-2524071618111683658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374696387983205002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f79a4166f8ba648b75bf0df459e100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Items.ItemCollectableBase
+  itemType: 0
+  compareTag: Player
+  particleSystem: {fileID: 0}
+  audioSource: {fileID: 0}
+  collider: {fileID: 6336155093110773417}
 --- !u!1001 &5312333552289014041
 PrefabInstance:
   m_ObjectHideFlags: 0
