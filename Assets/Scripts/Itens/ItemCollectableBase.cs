@@ -2,54 +2,60 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class ItemCollectableBase : MonoBehaviour
+
+namespace Items
 {
-
-    public string compareTag = "Player";
-    
-    [Header("Particles")]
-    public new ParticleSystem particleSystem;
-
-    [Header("Sounds")]
-    public AudioSource audioSource;
-    
-
-    private void Awake()
+    public class ItemCollectableBase : MonoBehaviour
     {
-        if (particleSystem != null) particleSystem.transform.SetParent(null);
-    }
+        public ItemType itemType;
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if(collision.transform.CompareTag(compareTag))
+        public string compareTag = "Player";
+
+        [Header("Particles")]
+        public new ParticleSystem particleSystem;
+
+        [Header("Sounds")]
+        public AudioSource audioSource;
+       
+
+        private void Awake()
         {
-            Collect();
+            if (particleSystem != null) particleSystem.transform.SetParent(null);
+        }
+
+        private void OnTriggerEnter(Collider collision)
+        {
+            if (collision.transform.CompareTag(compareTag))
+            {
+                Collect();
+                OnCollect();
+            }
+        }
+
+        protected virtual void Collect()
+        {
+            if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
+            if (GetComponent<Collider>() != null) GetComponent<Collider>().enabled = false;
+
             OnCollect();
         }
-    }
-
-    protected virtual void Collect()
-    {
-        if (GetComponent<SpriteRenderer>() != null) GetComponent<SpriteRenderer>().enabled = false;
-        if (GetComponent<Collider>() != null) GetComponent<Collider>().enabled = false;
-
-        OnCollect();    
-    }
-    protected virtual void OnCollect()
-    { 
-        if (particleSystem != null) particleSystem.Play();
-
-        if (audioSource != null && audioSource.clip != null)
+        protected virtual void OnCollect()
         {
-            audioSource.spatialBlend = 0f;
-            audioSource.Play();
+            if (particleSystem != null) particleSystem.Play();
 
-            Destroy(gameObject, 0.5f);
+            if (audioSource != null && audioSource.clip != null)
+            {
+                audioSource.spatialBlend = 0f;
+                audioSource.Play();
 
-        }
-        else
-        {
-            Destroy(gameObject);
+                Destroy(gameObject, 0.5f);
+
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            ItemManager.Instance.AddByType(itemType);
         }
     }
 }
