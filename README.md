@@ -311,4 +311,6 @@ At this stage, a HorizontalGroup panel was created to serve as the game's invent
 ## August 23th, 2026
 ### Creating a 3D adventure game: Using inventory items
 
+In this stage, the logic for using items in the inventory was developed. To achieve this, an "Actions" folder was created containing a script named `ActionLifePack.cs` to manage the use of collected potions. This allows the player to use a Life Pack by pressing the "F" key; when used—provided a Life Pack is available—it is removed from the inventory and the player's health is restored. Item management and player interaction are handled via instances of `ItemManager` and `PlayerController`.
 
+(Module 35 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on August 7th and ended on August 23th.).
