@@ -302,3 +302,8 @@ OBS: This project had to be temporarily paused due to college assignment deadlin
 In this phase, I am improving the item collection code to allow for the collection of other items, such as coins and health packs. One change involved the `ItemCollectableBase` script: I added an `items` namespace and included a public `itemType` variable. This provided access to the `ItemManager` script, allowing me to insert the line `ItemManager.Instance.AddByType(itemType);` into the `protected virtual void OnCollect()` function within `ItemCollectableBase` itself. I also imported a free 3D potion model pack from the Asset Store created by Bree (Magic Potion Pack Free low-poly 3D model - https://assetstore.unity.com/packages/3d/props/food/magic-potion-pack-free-low-poly-3d-model-319553); one of these models was used to create the game's healing potion, or "Life Pack."
 
 Issues: Just as in the 2D game project, the collected item count is appearing as a double value. In the previous project, the solution was to use float-based ScriptableObjects, allowing a value of 0.5 instead of 1 so that the calculation would result in 1 rather than 2 per collected item. However, the logic in the current project is designed for integers, requiring modifications to numerous parameters to accept the correct value. Even after adjusting the colliders, the double-counting issue persisted; consequently, the values ​​will remain doubled.
+
+## August 23th, 2026
+### Creating a 3D adventure game: Adding Items to the Inventory
+
+
