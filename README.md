@@ -254,7 +254,7 @@ However, this specific workflow is no longer supported in the Unity version I am
 
 * Channel Mixer, Lift Gamma Gain, Split Toning, Curves — these also appear as separate overrides in URP, corresponding to the sections previously found within the single "Color Grading" override in PPv2. In PPv2, all of these were grouped under one override called "Color Grading."
 
-In URP, these tools have been split into individual overrides. If you like, send me the list or a screenshot, and I can point out exactly which ones to click.
+In URP, these tools have been split into individual overrides.
 
 ### Changing Post-Processing settings in real-time
 
@@ -293,3 +293,12 @@ Importing the ScriptableObjects folder from the 2D game project: 1) Enemy death 
 ### Creating a 3D adventure game: Creating an Inventory
 
 By utilizing the ScriptableObjects from the 2D platformer project, it was possible to reuse and adapt code for the 3D adventure game project. The Item Manager was adjusted to create a list of items—such as Coins and Life packs—that could be added to the inventory. The project involved extensive script modifications, requiring additional time to review the code and ensure there were no conflicts with the ScriptableObjects and items carried over from the previous project.
+
+## August 22th, 2026
+### Creating a 3D adventure game: Collecting items
+
+OBS: This project had to be temporarily paused due to college assignment deadlines. It exists as a prototype with a defined core loop and an Android build (APK). We have now resumed work on the course.
+
+In this phase, I am improving the item collection code to allow for the collection of other items, such as coins and health packs. One change involved the `ItemCollectableBase` script: I added an `items` namespace and included a public `itemType` variable. This provided access to the `ItemManager` script, allowing me to insert the line `ItemManager.Instance.AddByType(itemType);` into the `protected virtual void OnCollect()` function within `ItemCollectableBase` itself. I also imported a free 3D potion model pack from the Asset Store created by Bree (Magic Potion Pack Free low-poly 3D model - https://assetstore.unity.com/packages/3d/props/food/magic-potion-pack-free-low-poly-3d-model-319553); one of these models was used to create the game's healing potion, or "Life Pack."
+
+Issues: Just as in the 2D game project, the collected item count is appearing as a double value. In the previous project, the solution was to use float-based ScriptableObjects, allowing a value of 0.5 instead of 1 so that the calculation would result in 1 rather than 2 per collected item. However, the logic in the current project is designed for integers, requiring modifications to numerous parameters to accept the correct value. Even after adjusting the colliders, the double-counting issue persisted; consequently, the values ​​will remain doubled.
