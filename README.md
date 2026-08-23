@@ -293,3 +293,8 @@ Importing the ScriptableObjects folder from the 2D game project: 1) Enemy death 
 ### Creating a 3D adventure game: Creating an Inventory
 
 By utilizing the ScriptableObjects from the 2D platformer project, it was possible to reuse and adapt code for the 3D adventure game project. The Item Manager was adjusted to create a list of items—such as Coins and Life packs—that could be added to the inventory. The project involved extensive script modifications, requiring additional time to review the code and ensure there were no conflicts with the ScriptableObjects and items carried over from the previous project.
+
+## August 22th, 2026
+### Creating a 3D adventure game: Collecting items
+
+OBS: This project had to be temporarily paused due to college assignment deadlines. It exists as a prototype with a defined core loop and an Android build (APK). We have now resumed work on the course.
