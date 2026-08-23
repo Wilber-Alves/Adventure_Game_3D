@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68eb04790c640994ca7013a8368306c8, type: 3}
-  m_Name: SOInte_Coins
-  m_EditorClassIdentifier: 
-  value: 0
+  m_Name: SOInt_COINS
+  m_EditorClassIdentifier: Assembly-CSharp::SOInt
+  valueInt: 20
