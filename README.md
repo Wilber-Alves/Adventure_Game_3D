@@ -306,4 +306,9 @@ Issues: Just as in the 2D game project, the collected item count is appearing as
 ## August 23th, 2026
 ### Creating a 3D adventure game: Adding Items to the Inventory
 
+At this stage, a HorizontalGroup panel was created to serve as the game's inventory; for now, it only supports one item type: the potion (life_pack). Coin and potion sprites were created and added to a new sprites folder. A script named `ItemLayout.cs` was created to control this inventory panel. Using Unity's UI and TextMeshPro libraries, this script enabled the creation of potion icon layouts that display both the icon itself and the item quantity. Additionally, an `ItemLayoutManager` script was created to manage the inventory in a more decoupled manner; it utilizes lists of `ItemLayout` objects and a function named `private void CreateItems()`—which instantiates a layout prefab for each setup defined in the manager—to add items to the inventory.
+
+## August 23th, 2026
+### Creating a 3D adventure game: Using inventory items
+
 
