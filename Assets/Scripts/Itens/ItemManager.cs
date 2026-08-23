@@ -1,6 +1,5 @@
 using EDGEE.Core.Singleton;
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 namespace Items
