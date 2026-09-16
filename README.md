@@ -316,6 +316,16 @@ In this stage, the logic for using items in the inventory was developed. To achi
 (Module 35 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on August 7th and ended on August 23th.).
 
 ## August 23th, 2026
-Creating a 3D adventure game: Chests and destructible items
+Creating a 3D adventure game: Adding a Chest
 
 During this stage, the process of adding chests and destructible items to the game began. To this end, an asset pack—"Basic Icons" by Art by Kandles (available at https://assetstore.unity.com/packages/2d/gui/icons/basic-icons-139575)—was imported from the Unity Asset Store; specifically, it was used to provide a pointer indicating that the player could interact with the chest to open its lid. The `ChestBase.cs` script was created to manage the chest's opening mechanism and the pointer animations, thereby signaling to the player that the chest is an interactable object. An item animation script—similar to the one used for coins but without rotation—was applied to the pointer. Additionally, DOTween was used to animate the pointer, and a notification activation system was implemented using `OnCollisionEnter` and `OnCollisionExit` functions. The chest lid animation was created using the Unity Animation window and configured within the Animator with two states (open and closed); this animation was integrated into the chest prefab, which also holds the `ChestBase` script. The code implementation utilized NaughtyAttributes.
+
+## September 15th, 2026
+Creating a 3D adventure game: Adding items to a chest
+
+Today, the step of adding items to the chests was completed; a new function (`update`) was created to handle the logic of pressing the 'Z' key to open the chest, including a check to prevent reopening if it was already open. A new script named `ChestItemBase` was created to identify the items awarded to the player upon opening the chest, featuring basic functions to manage item collection and presentation. Another script, `ChestItemCoin`, was generated; it inherits from `ChestItemBase` and implements the specific logic for the chest's items, including DOTween animations to adjust scale and visual effects.
+
+## September 15th, 2026
+Creating a 3D adventure game: Creating Destructible Objects
+
+
