@@ -7,7 +7,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 {
     [SerializeField] private float _currentLife;
     public bool destroyOnKill = false;
-    public float startLife = 10f;
+    public float startLife = 1f;
 
     public bool IsDead { get; private set; } // TESTE, Se nao funcionar, retirar e manter script original
 

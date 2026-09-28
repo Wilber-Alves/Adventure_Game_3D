@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 3408400269677224802}
   m_Layer: 0
   m_Name: PFB_DestructableItem
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1136851373026309987}
+  - {fileID: 3671278227708283894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6216874002648844939
@@ -117,6 +118,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructableItemsBase
   healthBase: {fileID: 3408400269677224802}
+  shakeDuration: 2
+  shakeForce: 15
+  dropCoinsAmount: 1
+  PFB_Coin: {fileID: 3374696387983205002, guid: a222db90b163abd45adfc026d751a86d, type: 3}
+  DropItem: {fileID: 3671278227708283894}
 --- !u!114 &3408400269677224802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,10 +135,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7127cb27c3514b044a505b071266ee80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBase
-  _currentLife: 0
+  _currentLife: 1
   destroyOnKill: 1
-  startLife: 10
+  startLife: 0
   uiLifeUpdater: {fileID: 0}
+--- !u!1 &8063353073855418542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3671278227708283894}
+  m_Layer: 0
+  m_Name: DropItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3671278227708283894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063353073855418542}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.009, y: 0.022, z: 0.144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1856913013622831582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &261670894832430832
 PrefabInstance:
   m_ObjectHideFlags: 0
