@@ -326,11 +326,11 @@ Creating a 3D adventure game: Adding items to a chest and Creating Destructible 
 Today, the step of adding items to the chests was completed; a new function (`update`) was created to handle the logic of pressing the 'Z' key to open the chest, including a check to prevent reopening if it was already open. A new script named `ChestItemBase` was created to identify the items awarded to the player upon opening the chest, featuring basic functions to manage item collection and presentation. Another script, `ChestItemCoin`, was generated; it inherits from `ChestItemBase` and implements the specific logic for the chest's items, including DOTween animations to adjust scale and visual effects. A new destructable item base script are made and now, cristals can block the way and be destroied by bullets.
 
 ## September 27th, 2026
-Creating a 3D adventure game: Drop items from destructable Objects
+Creating a 3D adventure game: Drop items from destructable Objects and Macnetig Hability
 
-An item destruction script was created and added to the prefab of the object intended to be destroyed after taking hits from the player; this script also allows for spawning coins upon the object's destruction.
+An item destruction script was created and added to the prefab of the object intended to be destroyed after taking hits from the player; this script also allows for spawning coins upon the object's destruction. Two scripts were created to implement a magnetic ability for the player, enabling them to attract coins to their position.
 
-
+(Module 36 submission - Creating a 3D adventure game: Adding Weapons - NOTE: The activity began on August 23th and ended on September 27th.).
 
 
 
