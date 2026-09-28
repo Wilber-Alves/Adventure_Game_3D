@@ -328,7 +328,7 @@ Today, the step of adding items to the chests was completed; a new function (`up
 ## September 27th, 2026
 Creating a 3D adventure game: Drop items from destructable Objects
 
-
+An item destruction script was created and added to the prefab of the object intended to be destroyed after taking hits from the player; this script also allows for spawning coins upon the object's destruction.
 
 
 
