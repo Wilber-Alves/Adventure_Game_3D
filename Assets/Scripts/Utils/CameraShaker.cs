@@ -13,9 +13,22 @@ public class CameraShaker : Singleton<CameraShaker>
     [SerializeField] private CinemachineStateDrivenCamera stateDrivenCamera;
 
     private float shakeTimer;
+    private CinemachineBasicMultiChannelPerlin activeNoise;
+    private ICinemachineCamera lastLiveChild;
 
     private void Update()
     {
+        // Detecta troca de vcam ativa (RUN -> IDLE -> DEATH etc)
+        if (stateDrivenCamera != null)
+        {
+            var currentLive = stateDrivenCamera.LiveChild;
+            if (currentLive != lastLiveChild)
+            {
+                ForceStopShake();
+                lastLiveChild = currentLive;
+            }
+        }
+
         if (shakeTimer > 0f)
         {
             shakeTimer -= Time.deltaTime;
@@ -37,18 +50,39 @@ public class CameraShaker : Singleton<CameraShaker>
         var noise = GetActiveNoise();
         if (noise == null) return;
 
-        noise.AmplitudeGain = amplitude;
-        noise.FrequencyGain = frequency;
+        // Se já havia shake em outra vcam, zera antes de trocar
+        if (activeNoise != null && activeNoise != noise)
+        {
+            activeNoise.AmplitudeGain = 0f;
+            activeNoise.FrequencyGain = 0f;
+        }
+
+        activeNoise = noise;
+        activeNoise.AmplitudeGain = amplitude;
+        activeNoise.FrequencyGain = frequency;
         shakeTimer = duration;
     }
 
     private void StopShake()
     {
-        var noise = GetActiveNoise();
-        if (noise == null) return;
+        if (activeNoise == null) return;
 
-        noise.AmplitudeGain = 0f;
-        noise.FrequencyGain = 0f;
+        activeNoise.AmplitudeGain = 0f;
+        activeNoise.FrequencyGain = 0f;
+        activeNoise = null;
+        shakeTimer = 0f;
+    }
+
+    // Usado quando a vcam troca no meio de um shake: cancela sem depender do noise atual
+    private void ForceStopShake()
+    {
+        if (activeNoise != null)
+        {
+            activeNoise.AmplitudeGain = 0f;
+            activeNoise.FrequencyGain = 0f;
+            activeNoise = null;
+        }
+        shakeTimer = 0f;
     }
 
     private CinemachineBasicMultiChannelPerlin GetActiveNoise()
